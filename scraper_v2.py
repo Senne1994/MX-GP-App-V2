@@ -14,7 +14,7 @@ def scrape_mxgp_results(category="mxgp"):
             
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Zoek specifiek de standings sectie (om ads te negeren)
+        # Zoek specifiek de standings sectie
         section = soup.find('section', id='standings')
         if not section: return None
 
@@ -32,9 +32,13 @@ def scrape_mxgp_results(category="mxgp"):
         for row in rows:
             cols = row.find_all('td')
             if len(cols) >= 5:
+                # .replace('#', '') verwijdert het hekje van de bronwebsite
+                raw_number = cols[1].get_text(strip=True)
+                clean_number = raw_number.replace('#', '')
+                
                 data["riders"].append({
                     "pos": cols[0].get_text(strip=True),
-                    "number": cols[1].get_text(strip=True),
+                    "number": clean_number,
                     "name": cols[2].get_text(strip=True).upper(),
                     "bike": cols[3].get_text(strip=True).upper(),
                     "points": cols[-1].get_text(strip=True)
@@ -56,7 +60,7 @@ def main():
 
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(full_data, f, indent=4, ensure_ascii=False)
-    print("Done! data.json is updated.")
+    print("Klaar! Hekjes zijn verwijderd en titels zijn live.")
 
 if __name__ == "__main__":
     main()
