@@ -36,20 +36,23 @@ def scrape_race_results(race_url):
         full_url = f"https://mxgpresults.com{race_url}"
         response = requests.get(full_url, headers=get_headers(), timeout=10)
         soup = BeautifulSoup(response.text, 'html.parser')
-        # We pakken de tabel van de resultaten
-        table = soup.find('table')
+        
+        # We zoeken specifiek naar de div 'gpclassification'
+        container = soup.find('div', id='gpclassification')
+        table = container.find('table') if container else soup.find('table', class_='ses')
+        
         if not table: return []
+        
         rows = table.find_all('tr')[1:]
         for row in rows:
             cols = row.find_all('td')
-            if len(cols) >= 5:
-                # We slaan de 5e kolom (Land) over door specifiek te indexeren
+            if len(cols) >= 6: # De tabel heeft nu 6 kolommen
                 results.append({
                     "pos": cols[0].get_text(strip=True),
                     "number": cols[1].get_text(strip=True).replace('#', ''),
                     "name": cols[2].get_text(strip=True).upper(),
                     "bike": cols[3].get_text(strip=True).upper(),
-                    "points": cols[-1].get_text(strip=True)
+                    "points": cols[5].get_text(strip=True) # Pak de 6e kolom (index 5) voor punten
                 })
         return results
     except: return []
@@ -79,6 +82,7 @@ def scrape_calendar():
                     "mx2_results": []
                 }
                 if race_link:
+                    print(f"Scraping results for {gp_name}...")
                     event["mxgp_results"] = scrape_race_results(race_link)
                     event["mx2_results"] = scrape_race_results(race_link.replace('/mxgp/', '/mx2/'))
                 events.append(event)
