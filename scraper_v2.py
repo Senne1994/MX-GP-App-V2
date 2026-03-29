@@ -5,76 +5,74 @@ import json
 def get_headers():
     return {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
-def scrape_mxgp_results(category="mxgp"):
-    url = f"https://mxgpresults.com/{category}/standings"
-    data = {"title": f"{category.upper()} STANDINGS", "riders": []}
-    try:
-        response = requests.get(url, headers=get_headers(), timeout=15)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        table = soup.find('section', id='standings').find('table')
-        for row in table.find_all('tr')[1:]:
-            cols = row.find_all('td')
-            if len(cols) >= 5:
-                data["riders"].append({
-                    "pos": cols[0].get_text(strip=True),
-                    "number": cols[1].get_text(strip=True).replace('#', ''),
-                    "name": cols[2].get_text(strip=True).upper(),
-                    "bike": cols[3].get_text(strip=True).upper(),
-                    "points": cols[-1].get_text(strip=True)
-                })
-        return data
-    except: return None
-
-def scrape_race_results(race_url):
+def scrape_table_rows(table):
     results = []
-    try:
-        full_url = f"https://mxgpresults.com{race_url}"
-        response = requests.get(full_url, headers=get_headers(), timeout=10)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # We zoeken de tabel in de div 'gpclassification' of met class 'ses'
-        table = soup.find('table', class_='ses') or soup.find('div', id='gpclassification').find('table')
-        if not table: return []
-        
-        for row in table.find_all('tr')[1:]:
-            cols = row.find_all('td')
-            # Jouw HTML heeft 6 kolommen: 0=Pos, 1=Num, 2=Rider, 3=Bike, 4=Nation, 5=Points
-            if len(cols) >= 6:
-                results.append({
-                    "pos": cols[0].get_text(strip=True),
-                    "number": cols[1].get_text(strip=True).replace('#', ''),
-                    "name": cols[2].get_text(strip=True).upper(),
-                    "bike": cols[3].get_text(strip=True).upper(),
-                    "points": cols[5].get_text(strip=True) # Pak specifiek kolom 5 (Points)
-                })
-        return results
-    except: return []
+    if not table: return []
+    rows = table.find_all('tr')[1:] # Sla de header over
+    for row in rows:
+        cols = row.find_all('td')
+        # We baseren ons op jouw lijn: 0=Pos, 1=Num, 2=Naam, 3=Bike, 4=Nation, 5=Points
+        if len(cols) >= 6:
+            name_cell = cols[2].find('a')
+            name = name_cell.get_text(strip=True) if name_cell else cols[2].get_text(strip=True)
+            results.append({
+                "pos": cols[0].get_text(strip=True),
+                "num": cols[1].get_text(strip=True).replace('#', ''),
+                "name": name.upper(),
+                "bike": cols[3].get_text(strip=True).upper(),
+                "pts": cols[5].get_text(strip=True)
+            })
+    return results
 
-def scrape_calendar():
-    url = "https://mxgpresults.com/mxgp/calendar"
-    events = []
-    try:
-        response = requests.get(url, headers=get_headers(), timeout=15)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        for row in soup.find_all('tr', itemtype="https://schema.org/SportsEvent"):
+def scrape_mxgp():
+    data = {"mxgp": [], "mx2": [], "calendar": []}
+    
+    # 1. Standings
+    for cat in ["mxgp", "mx2"]:
+        res = requests.get(f"https://mxgpresults.com/{cat}/standings", headers=get_headers())
+        soup = BeautifulSoup(res.text, 'html.parser')
+        table = soup.find('section', id='standings').find('table')
+        data[cat] = scrape_table_rows(table)
+
+    # 2. Kalender (We pakken ALLE rijen in de tabel, niet alleen SportsEvents)
+    res = requests.get("https://mxgpresults.com/mxgp/calendar", headers=get_headers())
+    soup = BeautifulSoup(res.text, 'html.parser')
+    calendar_table = soup.find('table')
+    if calendar_table:
+        for row in calendar_table.find_all('tr')[1:]:
             cols = row.find_all('td')
-            link = row.find('span', itemprop="name").find('a')
-            if link:
-                race_link = link['href']
-                events.append({
+            if len(cols) >= 3:
+                link_tag = cols[1].find('a')
+                url = link_tag['href'] if link_tag else None
+                
+                event = {
                     "round": cols[0].get_text(strip=True),
-                    "gp": link.get_text(strip=True).upper(),
-                    "loc": row.find('small', itemprop="location").get_text(strip=True),
+                    "gp": cols[1].find('span', itemprop="name").get_text(strip=True).upper() if cols[1].find('span') else cols[1].get_text(strip=True).upper(),
+                    "loc": cols[1].find('small').get_text(strip=True) if cols[1].find('small') else "",
                     "date": cols[2].get_text(strip=True),
-                    "mxgp_results": scrape_race_results(race_link),
-                    "mx2_results": scrape_race_results(race_link.replace('/mxgp/', '/mx2/'))
-                })
-        return events
-    except: return []
+                    "mxgp_res": [],
+                    "mx2_res": []
+                }
+                
+                if url:
+                    # Haal de uitslag op als de link bestaat
+                    res_page = requests.get(f"https://mxgpresults.com{url}", headers=get_headers())
+                    res_soup = BeautifulSoup(res_page.text, 'html.parser')
+                    # Zoek specifiek naar de uitslagentabel
+                    res_table = res_soup.find('div', id='gpclassification')
+                    if res_table:
+                        event["mxgp_res"] = scrape_table_rows(res_table.find('table'))
+                        # Probeer ook MX2 link
+                        mx2_url = url.replace('/mxgp/', '/mx2/')
+                        mx2_res_page = requests.get(f"https://mxgpresults.com{mx2_url}", headers=get_headers())
+                        mx2_table = BeautifulSoup(mx2_res_page.text, 'html.parser').find('div', id='gpclassification')
+                        if mx2_table:
+                            event["mx2_res"] = scrape_table_rows(mx2_table.find('table'))
+                
+                data["calendar"].append(event)
+
+    with open('data.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
 
 if __name__ == "__main__":
-    mxgp = scrape_mxgp_results("mxgp")
-    mx2 = scrape_mxgp_results("mx2")
-    cal = scrape_calendar()
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump({"calendar": cal, "mxgp": mxgp, "mx2": mx2}, f, indent=4)
+    scrape_mxgp()
