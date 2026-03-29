@@ -2,9 +2,11 @@ name: Update MXGP Data V2
 
 on:
   schedule:
-    # Draait elke dag om 06:00 UTC
     - cron: '0 6 * * *'
-  workflow_dispatch: # Hiermee kun je handmatig op "Run workflow" klikken
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -30,5 +32,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data_*.json years_index.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update MXGP V2 data" && git push)
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update standings" && git push)
