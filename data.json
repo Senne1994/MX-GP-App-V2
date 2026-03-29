@@ -1,5 +1,126 @@
 {
-    "calendar": [],
+    "calendar": [
+        {
+            "round": "1",
+            "gp": "ARGENTINA",
+            "loc": "Bariloche",
+            "date": "7 - 8 Mar"
+        },
+        {
+            "round": "2",
+            "gp": "ANDALUCIA",
+            "loc": "Almonte",
+            "date": "21 - 22 Mar"
+        },
+        {
+            "round": "3",
+            "gp": "SWITZERLAND",
+            "loc": "Frauenfeld",
+            "date": "28 - 29 Mar"
+        },
+        {
+            "round": "4",
+            "gp": "SARDEGNA",
+            "loc": "Riola Sardo",
+            "date": "11 - 12 Apr"
+        },
+        {
+            "round": "5",
+            "gp": "TRENTINO",
+            "loc": "Pietramurata",
+            "date": "18 - 19 Apr"
+        },
+        {
+            "round": "6",
+            "gp": "TBA",
+            "loc": "TBA",
+            "date": "25 - 26 Apr"
+        },
+        {
+            "round": "7",
+            "gp": "FRANCE",
+            "loc": "Lacapelle Marival",
+            "date": "23 - 24 May"
+        },
+        {
+            "round": "8",
+            "gp": "GERMANY",
+            "loc": "Teutschenthal",
+            "date": "30 - 31 May"
+        },
+        {
+            "round": "9",
+            "gp": "LATVIA",
+            "loc": "Kegums",
+            "date": "6 - 7 Jun"
+        },
+        {
+            "round": "10",
+            "gp": "ITALY",
+            "loc": "Montevarchi",
+            "date": "20 - 21 Jun"
+        },
+        {
+            "round": "11",
+            "gp": "PORTUGAL",
+            "loc": "Águeda",
+            "date": "27 - 28 Jun"
+        },
+        {
+            "round": "12",
+            "gp": "SOUTH AFRICA",
+            "loc": "Johannesburg",
+            "date": "4 - 5 Jul"
+        },
+        {
+            "round": "13",
+            "gp": "GREAT BRITAIN",
+            "loc": "Foxhills",
+            "date": "18 - 19 Jul"
+        },
+        {
+            "round": "14",
+            "gp": "CZECH REPUBLIC",
+            "loc": "Loket",
+            "date": "25 - 26 Jul"
+        },
+        {
+            "round": "15",
+            "gp": "FLANDERS",
+            "loc": "Lommel",
+            "date": "1 - 2 Aug"
+        },
+        {
+            "round": "16",
+            "gp": "SWEDEN",
+            "loc": "Uddevalla",
+            "date": "15 - 16 Aug"
+        },
+        {
+            "round": "17",
+            "gp": "NETHERLANDS",
+            "loc": "Arnham",
+            "date": "22 - 23 Aug"
+        },
+        {
+            "round": "18",
+            "gp": "TURKIYE",
+            "loc": "Afyonkarahisar",
+            "date": "5 - 6 Sep"
+        },
+        {
+            "round": "19",
+            "gp": "CHINA",
+            "loc": "Shanghai",
+            "date": "12 - 13 Sep"
+        },
+        {
+            "round": "20",
+            "gp": "AUSTRALIA",
+            "loc": "Darwin",
+            "date": "19 - 20 Sep"
+        }
+    ],
     "mxgp": {
         "title": "MXGP RIDER STANDINGS 2026",
         "riders": [
