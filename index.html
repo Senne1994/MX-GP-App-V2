@@ -3,54 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MX Pro App</title>
+    <title>MX Pro App V2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .nav-active { color: #ea580c; border-top: 3px solid #ea580c; background: rgba(255,255,255,0.05); }
-        body { -webkit-tap-highlight-color: transparent; padding-bottom: 70px; }
-        #year-picker { 
-            background: #1a1a1a; 
-            color: #ea580c; 
-            border: 1px solid #ea580c; 
-            padding: 2px 8px; 
-            border-radius: 8px; 
-            font-weight: 900; 
-            font-style: italic; 
-            outline: none; 
-            font-size: 12px; 
-        }
+        body { -webkit-tap-highlight-color: transparent; padding-bottom: 70px; background-color: #f3f4f6; }
+        #year-picker { background: #1a1a1a; color: #ea580c; border: 1px solid #ea580c; padding: 2px 8px; border-radius: 8px; font-weight: 900; font-style: italic; outline: none; font-size: 12px; }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="font-sans text-gray-900">
 
     <div id="page-standings">
-        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600">
+        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 shadow-lg">
             <div class="flex justify-between items-center mb-4">
                 <h1 id="main-title" class="text-lg font-black italic uppercase text-orange-600 tracking-tighter">MX STANDINGS</h1>
                 <select id="year-picker" onchange="changeYear(this.value)"></select>
             </div>
             <div class="flex justify-center space-x-2">
-                <button onclick="switchClass('mxgp')" id="btn-mxgp" class="px-6 py-2 rounded-full font-black text-xs bg-orange-600 text-white border-0 cursor-pointer transition-all">MXGP</button>
-                <button onclick="switchClass('mx2')" id="btn-mx2" class="px-6 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400 border-0 cursor-pointer transition-all">MX2</button>
+                <button onclick="switchClass('mxgp')" id="btn-mxgp" class="px-6 py-2 rounded-full font-black text-xs bg-orange-600 text-white border-0 transition-all">MXGP</button>
+                <button onclick="switchClass('mx2')" id="btn-mx2" class="px-6 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400 border-0 transition-all">MX2</button>
             </div>
         </header>
-        <div id="standings-list" class="max-w-md mx-auto p-4 space-y-3">
-            </div>
+        <div id="standings-list" class="max-w-md mx-auto p-4 space-y-3"></div>
     </div>
 
     <div id="page-calendar" class="hidden">
         <header class="bg-black text-white p-6 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
             <h1 id="calendar-header-title" class="text-xl font-black italic uppercase text-orange-600">MXGP CALENDAR</h1>
         </header>
-        <div id="calendar-list" class="max-w-md mx-auto p-4 space-y-3">
-            </div>
+        <div id="calendar-list" class="max-w-md mx-auto p-4 space-y-3"></div>
     </div>
 
     <nav class="fixed bottom-0 left-0 right-0 bg-black text-white flex justify-around items-center z-50 h-16 border-t border-gray-900 shadow-2xl">
-        <button onclick="showPage('standings')" id="nav-standings" class="flex-1 flex flex-col items-center justify-center h-full nav-active border-0 bg-transparent">
+        <button onclick="showPage('standings')" id="nav-standings" class="flex-1 flex flex-col items-center justify-center h-full nav-active bg-transparent">
             <span class="text-[10px] font-black uppercase tracking-widest">Standings</span>
         </button>
-        <button onclick="showPage('calendar')" id="nav-calendar" class="flex-1 flex flex-col items-center justify-center h-full text-gray-500 border-0 bg-transparent">
+        <button onclick="showPage('calendar')" id="nav-calendar" class="flex-1 flex flex-col items-center justify-center h-full text-gray-500 bg-transparent">
             <span class="text-[10px] font-black uppercase tracking-widest">Calendar</span>
         </button>
     </nav>
@@ -59,64 +47,47 @@
         let currentYearData = {};
         let currentClass = 'mxgp';
 
-        // 1. Start de app en vul de jaar-keuze
         async function init() {
             try {
                 const indexRes = await fetch('years_index.json?t=' + Date.now());
                 const indexData = await indexRes.json();
                 const picker = document.getElementById('year-picker');
-                
                 indexData.available_years.forEach(y => {
                     picker.innerHTML += `<option value="${y}">${y}</option>`;
                 });
-                
-                // Laad standaard het nieuwste jaar
                 await changeYear(indexData.available_years[0]);
-            } catch (e) { 
-                console.error("Initialization failed:", e); 
-            }
+            } catch (e) { console.error("Init Error:", e); }
         }
 
-        // 2. Wissel van jaar
         async function changeYear(year) {
             try {
                 const res = await fetch(`data_${year}.json?t=${Date.now()}`);
                 currentYearData = await res.json();
-                
                 document.getElementById('calendar-header-title').innerText = `MXGP CALENDAR ${year}`;
-                
                 switchClass(currentClass);
                 renderCalendar();
-            } catch (e) { 
-                console.error("Could not load year data:", e); 
-            }
+            } catch (e) { console.error("Load Error:", e); }
         }
 
-        // 3. Navigatie tussen Standings en Calendar
         function showPage(page) {
             document.getElementById('page-standings').classList.toggle('hidden', page !== 'standings');
             document.getElementById('page-calendar').classList.toggle('hidden', page !== 'calendar');
-            
             document.getElementById('nav-standings').classList.toggle('nav-active', page === 'standings');
             document.getElementById('nav-standings').classList.toggle('text-gray-500', page !== 'standings');
-            
             document.getElementById('nav-calendar').classList.toggle('nav-active', page === 'calendar');
             document.getElementById('nav-calendar').classList.toggle('text-gray-500', page !== 'calendar');
-            
             window.scrollTo(0,0);
         }
 
-        // 4. Standings Renderen (Mapping aangepast aan jouw screenshot)
         function switchClass(className) {
             currentClass = className;
             const list = document.getElementById('standings-list');
             const data = currentYearData[className];
-            if (!data) return;
+            if (!data || !data.riders) return;
 
             document.getElementById('main-title').innerText = data.title;
             list.innerHTML = '';
             
-            // Update button styles
             document.getElementById('btn-mxgp').className = className === 'mxgp' ? 'px-6 py-2 rounded-full font-black text-xs bg-orange-600 text-white' : 'px-6 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
             document.getElementById('btn-mx2').className = className === 'mx2' ? 'px-6 py-2 rounded-full font-black text-xs bg-orange-600 text-white' : 'px-6 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
 
@@ -124,40 +95,31 @@
                 list.innerHTML += `
                 <div class="flex items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
                     <span class="text-xl font-bold w-10 text-gray-200">${r.pos}</span>
-                    
-                    <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 font-black mr-4 text-sm">
-                        ${r.number || '#'}
+                    <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 font-black mr-4 text-sm tracking-tighter">
+                        ${r.number}
                     </div>
-                    
                     <div class="flex-grow">
-                        <h2 class="font-extrabold text-gray-900 leading-tight uppercase">${r.name}</h2>
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">${r.bike || 'Unknown'}</p>
+                        <h2 class="font-extrabold text-gray-900 leading-tight uppercase tracking-tight text-sm">${r.name}</h2>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">${r.bike}</p>
                     </div>
-                    
                     <div class="text-right">
-                        <span class="text-2xl font-black">${r.points}</span>
+                        <span class="text-2xl font-black tabular-nums">${r.points}</span>
                         <p class="text-[10px] text-orange-600 font-black uppercase">pts</p>
                     </div>
                 </div>`;
             });
         }
 
-        // 5. Kalender Renderen
         function renderCalendar() {
             const list = document.getElementById('calendar-list');
             const calendar = currentYearData.calendar;
             list.innerHTML = '';
-            
-            if(!calendar || !calendar.length) { 
-                list.innerHTML = "<p class='text-center p-10 text-gray-400 font-bold uppercase'>No calendar data available.</p>"; 
-                return; 
-            }
-
+            if(!calendar || calendar.length === 0) return;
             calendar.forEach(event => {
                 list.innerHTML += `
                 <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-orange-600">
                     <div class="flex justify-between items-center mb-1">
-                        <span class="text-[10px] font-black bg-orange-100 text-orange-600 px-2 py-1 rounded uppercase tracking-tighter">ROUND ${event.round}</span>
+                        <span class="text-[10px] font-black bg-orange-100 text-orange-600 px-2 py-1 rounded uppercase">ROUND ${event.round}</span>
                         <span class="text-xs font-bold text-gray-400 uppercase">${event.date}</span>
                     </div>
                     <h2 class="text-lg font-black text-gray-900 uppercase italic leading-tight">${event.gp}</h2>
@@ -165,8 +127,6 @@
                 </div>`;
             });
         }
-
-        // Start de app
         init();
     </script>
 </body>
