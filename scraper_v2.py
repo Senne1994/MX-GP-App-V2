@@ -1,11 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-from datetime import datetime
 
-def scrape_mxgp_results(year, category="mxgp"):
-    # URL structuur voor mxgpresults: mxgp of mx2
-    url = f"https://mxgpresults.com/{category}/standings/{year}/{category}.html"
+def scrape_mxgp_results(category="mxgp"):
+    # URL naar de algemene standings pagina van mxgpresults
+    url = f"https://mxgpresults.com/{category}/standings"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
     
     riders = []
@@ -15,11 +14,11 @@ def scrape_mxgp_results(year, category="mxgp"):
             return None
             
         soup = BeautifulSoup(response.text, 'html.parser')
-        # De tabel op mxgpresults heeft meestal geen class, maar is de enige grote tabel
+        # De eerste tabel op de pagina bevat de kampioenschapsstand
         table = soup.find('table')
         if not table: return None
         
-        rows = table.find_all('tr')[1:] # Skip header row
+        rows = table.find_all('tr')[1:] # Skip de header-rij
         
         for row in rows:
             cols = row.find_all('td')
@@ -35,39 +34,26 @@ def scrape_mxgp_results(year, category="mxgp"):
                 })
         return riders
     except Exception as e:
-        print(f"Error scraping {category} {year}: {e}")
+        print(f"Error scraping {category}: {e}")
         return None
 
 def main():
-    # We focussen nu op het huidige jaar (2026)
-    year = 2026 
-    print(f"Starting V2 Scraping for {year}...")
+    print("Starting V2 Scraping from mxgpresults.com...")
     
-    mxgp_riders = scrape_mxgp_results(year, "mxgp")
-    mx2_riders = scrape_mxgp_results(year, "mx2")
+    mxgp_riders = scrape_mxgp_results("mxgp")
+    mx2_riders = scrape_mxgp_results("mx2")
     
-    # We houden de kalender voorlopig simpel of halen deze later op
-    # (mxgpresults heeft een andere kalender-url, dit is een placeholder)
-    calendar_data = [
-        {"round": "1", "date": "March 2026", "gp": "Coming Soon", "loc": "Track TBD"}
-    ]
-
+    # We houden de structuur simpel voor data.json
     full_data = {
-        "year": year,
-        "calendar": calendar_data,
-        "mxgp": {"title": f"MXGP STANDINGS {year}", "riders": mxgp_riders or []},
-        "mx2": {"title": f"MX2 STANDINGS {year}", "riders": mx2_riders or []}
+        "calendar": [], # Placeholder voor later
+        "mxgp": {"title": "MXGP STANDINGS", "riders": mxgp_riders or []},
+        "mx2": {"title": "MX2 STANDINGS", "riders": mx2_riders or []}
     }
 
-    # Opslaan voor de website
-    with open(f"data_{year}.json", 'w', encoding='utf-8') as f:
+    with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(full_data, f, indent=4, ensure_ascii=False)
     
-    # Index bestand maken
-    with open('years_index.json', 'w') as f:
-        json.dump({"available_years": [year]}, f)
-    
-    print("V2 Data update complete.")
+    print("Scraping complete. Saved to data.json")
 
 if __name__ == "__main__":
     main()
