@@ -3,142 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MX Pro</title>
+    <title>MXGP Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f3f4f6; padding-bottom: 80px; }
-        .nav-active { color: #ea580c; border-top: 3px solid #ea580c; background: #fff; }
-        .card-shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        #results-modal { background-color: #f3f4f6; } /* Forceer dichte achtergrond */
+        .nav-active { color: #ea580c; border-top: 3px solid #ea580c; background: rgba(255,255,255,0.05); }
+        body { background-color: #f3f4f6; padding-bottom: 70px; }
+        /* Fix voor overlapping: zorg dat modal content niet transparant is */
+        #results-modal { background-color: #f3f4f6; }
     </style>
 </head>
-<body class="font-sans">
+<body class="font-sans text-gray-900">
 
     <div id="page-standings">
-        <header class="bg-black text-white p-4 sticky top-0 z-50 text-center border-b-2 border-orange-600">
-            <h1 class="text-orange-600 font-black italic uppercase tracking-tighter mb-4">MX Standings</h1>
-            <div class="flex justify-center gap-2">
-                <button onclick="updateStandings('mxgp')" id="tab-mxgp" class="bg-orange-600 text-white px-8 py-2 rounded-full text-xs font-black">MXGP</button>
-                <button onclick="updateStandings('mx2')" id="tab-mx2" class="bg-gray-800 text-gray-400 px-8 py-2 rounded-full text-xs font-black">MX2</button>
+        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 shadow-lg text-center">
+            <h1 id="main-title" class="text-lg font-black italic uppercase text-orange-600 mb-4 tracking-tighter">LOADING...</h1>
+            <div class="flex justify-center space-x-2">
+                <button onclick="switchClass('mxgp')" id="btn-mxgp" class="px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white">MXGP</button>
+                <button onclick="switchClass('mx2')" id="btn-mx2" class="px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400">MX2</button>
             </div>
         </header>
-        <div id="standings-list" class="p-4 space-y-3 max-w-md mx-auto"></div>
+        <div id="standings-list" class="max-w-md mx-auto p-4 space-y-3"></div>
     </div>
 
     <div id="page-calendar" class="hidden">
-        <header class="bg-black text-white p-6 sticky top-0 z-50 text-center border-b-2 border-orange-600">
-            <h1 class="text-orange-600 font-black italic uppercase">Calendar</h1>
+        <header class="bg-black text-white p-6 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
+            <h1 class="text-xl font-black italic uppercase text-orange-600">MXGP CALENDAR</h1>
         </header>
-        <div id="calendar-list" class="p-4 space-y-3 max-w-md mx-auto"></div>
+        <div id="calendar-list" class="max-w-md mx-auto p-4 space-y-3"></div>
     </div>
 
-    <div id="modal" class="fixed inset-0 z-[100] hidden flex flex-col">
+    <div id="results-modal" class="fixed inset-0 z-[100] hidden flex flex-col">
         <header class="bg-black text-white p-4 border-b-2 border-orange-600">
-            <div class="flex justify-between items-center mb-4">
-                <h2 id="modal-title" class="text-orange-600 font-black italic uppercase truncate">Results</h2>
-                <button onclick="closeModal()" class="bg-gray-800 w-10 h-10 rounded-full font-bold">✕</button>
+            <div class="flex justify-between items-center mb-4 px-2">
+                <h2 id="modal-title" class="text-lg font-black italic uppercase text-orange-600 truncate italic"></h2>
+                <button onclick="closeModal()" class="bg-gray-800 text-white w-10 h-10 rounded-full font-bold flex items-center justify-center">✕</button>
             </div>
-            <div class="flex justify-center gap-2">
-                <button id="modal-mxgp" class="bg-orange-600 text-white px-8 py-2 rounded-full text-xs font-black">MXGP</button>
-                <button id="modal-mx2" class="bg-gray-800 text-gray-400 px-8 py-2 rounded-full text-xs font-black">MX2</button>
+            <div class="flex justify-center space-x-2">
+                <button id="modal-btn-mxgp" class="px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white">MXGP</button>
+                <button id="modal-btn-mx2" class="px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400">MX2</button>
             </div>
         </header>
-        <div id="modal-list" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+        <div id="modal-results-list" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
     </div>
 
-    <nav class="fixed bottom-0 inset-x-0 h-16 bg-white border-t flex justify-around items-center z-50">
-        <button onclick="showPage('standings')" id="nav-s" class="flex-1 h-full nav-active font-black uppercase text-[10px] tracking-widest">Standings</button>
-        <button onclick="showPage('calendar')" id="nav-c" class="flex-1 h-full text-gray-400 font-black uppercase text-[10px] tracking-widest">Calendar</button>
+    <nav class="fixed bottom-0 left-0 right-0 bg-black text-white flex justify-around items-center z-50 h-16 border-t border-gray-900 shadow-2xl">
+        <button onclick="showPage('standings')" id="nav-standings" class="flex-1 flex flex-col items-center justify-center h-full nav-active">
+            <span class="text-[10px] font-black uppercase tracking-widest">Standings</span>
+        </button>
+        <button onclick="showPage('calendar')" id="nav-calendar" class="flex-1 flex flex-col items-center justify-center h-full text-gray-500">
+            <span class="text-[10px] font-black uppercase tracking-widest">Calendar</span>
+        </button>
     </nav>
 
     <script>
-        let db = {};
+        let currentData = {};
         let activeGP = null;
 
         async function init() {
-            const r = await fetch('data.json?v=' + Date.now());
-            db = await r.json();
-            updateStandings('mxgp');
+            const res = await fetch('data.json?t=' + Date.now());
+            currentData = await res.json();
+            switchClass('mxgp');
             renderCalendar();
         }
 
-        function showPage(p) {
-            document.getElementById('page-standings').classList.toggle('hidden', p !== 'standings');
-            document.getElementById('page-calendar').classList.toggle('hidden', p !== 'calendar');
-            document.getElementById('nav-s').className = p === 'standings' ? 'flex-1 h-full nav-active font-black uppercase text-[10px] tracking-widest' : 'flex-1 h-full text-gray-400 font-black uppercase text-[10px] tracking-widest';
-            document.getElementById('nav-c').className = p === 'calendar' ? 'flex-1 h-full nav-active font-black uppercase text-[10px] tracking-widest' : 'flex-1 h-full text-gray-400 font-black uppercase text-[10px] tracking-widest';
+        function showPage(page) {
+            document.getElementById('page-standings').classList.toggle('hidden', page !== 'standings');
+            document.getElementById('page-calendar').classList.toggle('hidden', page !== 'calendar');
+            document.getElementById('nav-standings').classList.toggle('nav-active', page === 'standings');
+            document.getElementById('nav-calendar').classList.toggle('nav-active', page === 'calendar');
+            document.getElementById('nav-standings').classList.toggle('text-gray-500', page !== 'standings');
+            document.getElementById('nav-calendar').classList.toggle('text-gray-500', page !== 'calendar');
         }
 
-        function renderRows(targetId, riders) {
-            const container = document.getElementById(targetId);
-            container.innerHTML = ''; // RESET: Dit voorkomt de rommel
+        function renderRiderList(containerId, riders) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // Cruciaal om overlapping te voorkomen
             if (!riders || riders.length === 0) {
-                container.innerHTML = '<div class="text-center p-10 text-gray-400 font-bold uppercase text-xs">No data available</div>';
+                container.innerHTML = '<p class="text-center text-gray-400 font-bold p-8">NO RESULTS AVAILABLE</p>';
                 return;
             }
             riders.forEach(r => {
                 container.innerHTML += `
-                <div class="flex items-center bg-white p-4 rounded-2xl card-shadow border border-gray-100">
-                    <span class="w-8 text-lg font-bold text-gray-200">${r.pos}</span>
-                    <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-black text-xs mr-4">#${r.num}</div>
+                <div class="flex items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <span class="text-xl font-bold w-10 text-gray-200">${r.pos}</span>
+                    <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 font-black mr-4 text-sm">${r.number}</div>
                     <div class="flex-grow">
-                        <div class="font-black text-gray-900 text-sm uppercase leading-none">${r.name}</div>
-                        <div class="text-[9px] text-gray-400 font-bold uppercase mt-1 tracking-wider">${r.bike}</div>
+                        <h2 class="font-extrabold text-gray-900 leading-tight uppercase text-sm">${r.name}</h2>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">${r.bike}</p>
                     </div>
                     <div class="text-right">
-                        <div class="text-xl font-black leading-none">${r.pts}</div>
-                        <div class="text-[9px] text-orange-600 font-black uppercase">pts</div>
+                        <span class="text-2xl font-black">${r.points}</span>
+                        <p class="text-[10px] text-orange-600 font-black uppercase">pts</p>
                     </div>
                 </div>`;
             });
         }
 
-        function updateStandings(cat) {
-            document.getElementById('tab-mxgp').className = cat === 'mxgp' ? 'bg-orange-600 text-white px-8 py-2 rounded-full text-xs font-black' : 'bg-gray-800 text-gray-400 px-8 py-2 rounded-full text-xs font-black';
-            document.getElementById('tab-mx2').className = cat === 'mx2' ? 'bg-orange-600 text-white px-8 py-2 rounded-full text-xs font-black' : 'bg-gray-800 text-gray-400 px-8 py-2 rounded-full text-xs font-black';
-            renderRows('standings-list', db[cat]);
+        function switchClass(className) {
+            const data = currentData[className];
+            document.getElementById('main-title').innerText = data.title;
+            document.getElementById('btn-mxgp').className = className === 'mxgp' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
+            document.getElementById('btn-mx2').className = className === 'mx2' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
+            renderRiderList('standings-list', data.riders);
         }
 
         function renderCalendar() {
             const list = document.getElementById('calendar-list');
             list.innerHTML = '';
-            db.calendar.forEach((gp, idx) => {
-                const hasRes = gp.mxgp_res.length > 0;
+            currentData.calendar.forEach((event, index) => {
+                const hasResults = event.mxgp_res.length > 0;
                 list.innerHTML += `
-                <div onclick="openModal(${idx})" class="bg-white p-5 rounded-2xl card-shadow border-l-4 ${hasRes ? 'border-orange-600' : 'border-gray-200'}">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-[9px] font-black bg-gray-100 px-2 py-1 rounded text-gray-500 uppercase">Round ${gp.round}</span>
-                            <h3 class="text-lg font-black text-gray-900 uppercase italic mt-2 leading-tight">${gp.gp}</h3>
-                            <p class="text-xs text-gray-400 font-bold uppercase mt-1">📍 ${gp.loc}</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[10px] font-bold text-gray-400 uppercase">${gp.date}</span>
-                            ${hasRes ? '<div class="text-[9px] text-orange-600 font-black mt-4 uppercase">View Results →</div>' : ''}
-                        </div>
+                <div onclick="${hasResults ? `openModal(${index})` : ''}" class="bg-white p-5 rounded-2xl shadow-sm border-l-4 ${hasResults ? 'border-orange-600' : 'border-gray-200'}">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-[10px] font-black bg-orange-100 text-orange-600 px-2 py-1 rounded uppercase">ROUND ${event.round}</span>
+                        <span class="text-xs font-bold text-gray-400 uppercase">${event.date}</span>
                     </div>
+                    <h2 class="text-lg font-black text-gray-900 uppercase italic leading-tight">${event.gp}</h2>
+                    <p class="text-sm text-gray-500 font-bold italic mt-1 uppercase">📍 ${event.loc}</p>
+                    ${hasResHtml(event)}
                 </div>`;
             });
         }
 
-        function openModal(idx) {
-            activeGP = db.calendar[idx];
+        function hasResHtml(event) {
+            if (event.mxgp_res.length > 0) {
+                return '<p class="text-[10px] text-orange-600 font-black mt-2 uppercase tracking-tighter">View Results →</p>';
+            }
+            return '';
+        }
+
+        function openModal(index) {
+            activeGP = currentData.calendar[index];
             document.getElementById('modal-title').innerText = activeGP.gp;
-            updateModalCat('mxgp');
-            document.getElementById('modal').classList.remove('hidden');
+            updateModalView('mxgp');
+            document.getElementById('results-modal').classList.remove('hidden');
         }
 
-        function updateModalCat(cat) {
-            document.getElementById('modal-mxgp').className = cat === 'mxgp' ? 'bg-orange-600 text-white px-8 py-2 rounded-full text-xs font-black' : 'bg-gray-800 text-gray-400 px-8 py-2 rounded-full text-xs font-black';
-            document.getElementById('modal-mx2').className = cat === 'mx2' ? 'bg-orange-600 text-white px-8 py-2 rounded-full text-xs font-black' : 'bg-gray-800 text-gray-400 px-8 py-2 rounded-full text-xs font-black';
-            
-            document.getElementById('modal-mxgp').onclick = () => updateModalCat('mxgp');
-            document.getElementById('modal-mx2').onclick = () => updateModalCat('mx2');
-            
-            renderRows('modal-list', cat === 'mxgp' ? activeGP.mxgp_res : activeGP.mx2_res);
-        }
+        function closeModal() { document.getElementById('results-modal').classList.add('hidden'); }
 
-        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+        function updateModalView(className) {
+            document.getElementById('modal-btn-mxgp').className = className === 'mxgp' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
+            document.getElementById('modal-btn-mx2').className = className === 'mx2' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
+            
+            document.getElementById('modal-btn-mxgp').onclick = () => updateModalView('mxgp');
+            document.getElementById('modal-btn-mx2').onclick = () => updateModalView('mx2');
+
+            renderRiderList('modal-results-list', className === 'mxgp' ? activeGP.mxgp_res : activeGP.mx2_res);
+        }
 
         init();
     </script>
