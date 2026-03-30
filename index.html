@@ -7,16 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .nav-active { color: #ea580c; border-top: 3px solid #ea580c; background: rgba(255,255,255,0.05); }
-        body { background-color: #f3f4f6; padding-bottom: 70px; }
-        /* Fix voor overlapping: zorg dat modal content niet transparant is */
+        body { background-color: #f3f4f6; padding-bottom: 70px; -webkit-tap-highlight-color: transparent; }
         #results-modal { background-color: #f3f4f6; }
     </style>
 </head>
 <body class="font-sans text-gray-900">
 
     <div id="page-standings">
-        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 shadow-lg text-center">
-            <h1 id="main-title" class="text-lg font-black italic uppercase text-orange-600 mb-4 tracking-tighter">LOADING...</h1>
+        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
+            <h1 id="main-title" class="text-lg font-black italic uppercase text-orange-600 mb-4 tracking-tighter">STANDINGS</h1>
             <div class="flex justify-center space-x-2">
                 <button onclick="switchClass('mxgp')" id="btn-mxgp" class="px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white">MXGP</button>
                 <button onclick="switchClass('mx2')" id="btn-mx2" class="px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400">MX2</button>
@@ -35,11 +34,11 @@
     <div id="results-modal" class="fixed inset-0 z-[100] hidden flex flex-col">
         <header class="bg-black text-white p-4 border-b-2 border-orange-600">
             <div class="flex justify-between items-center mb-4 px-2">
-                <h2 id="modal-title" class="text-lg font-black italic uppercase text-orange-600 truncate italic"></h2>
+                <h2 id="modal-title" class="text-lg font-black italic uppercase text-orange-600 truncate italic">RESULTS</h2>
                 <button onclick="closeModal()" class="bg-gray-800 text-white w-10 h-10 rounded-full font-bold flex items-center justify-center">✕</button>
             </div>
             <div class="flex justify-center space-x-2">
-                <button id="modal-btn-mxgp" class="px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white">MXGP</button>
+                <button id="modal-btn-mxgp" class="px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md">MXGP</button>
                 <button id="modal-btn-mx2" class="px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400">MX2</button>
             </div>
         </header>
@@ -77,9 +76,9 @@
 
         function renderRiderList(containerId, riders) {
             const container = document.getElementById(containerId);
-            container.innerHTML = ''; // Cruciaal om overlapping te voorkomen
+            container.innerHTML = ''; // Maakt de lijst echt leeg
             if (!riders || riders.length === 0) {
-                container.innerHTML = '<p class="text-center text-gray-400 font-bold p-8">NO RESULTS AVAILABLE</p>';
+                container.innerHTML = '<p class="text-center text-gray-400 font-bold p-12 uppercase text-xs">No data available</p>';
                 return;
             }
             riders.forEach(r => {
@@ -113,23 +112,16 @@
             currentData.calendar.forEach((event, index) => {
                 const hasResults = event.mxgp_res.length > 0;
                 list.innerHTML += `
-                <div onclick="${hasResults ? `openModal(${index})` : ''}" class="bg-white p-5 rounded-2xl shadow-sm border-l-4 ${hasResults ? 'border-orange-600' : 'border-gray-200'}">
+                <div onclick="${hasResults ? `openModal(${index})` : ''}" class="bg-white p-5 rounded-2xl shadow-sm border-l-4 ${hasResults ? 'border-orange-600' : 'border-gray-200'} active:scale-95 transition-transform">
                     <div class="flex justify-between items-center mb-1">
                         <span class="text-[10px] font-black bg-orange-100 text-orange-600 px-2 py-1 rounded uppercase">ROUND ${event.round}</span>
                         <span class="text-xs font-bold text-gray-400 uppercase">${event.date}</span>
                     </div>
                     <h2 class="text-lg font-black text-gray-900 uppercase italic leading-tight">${event.gp}</h2>
                     <p class="text-sm text-gray-500 font-bold italic mt-1 uppercase">📍 ${event.loc}</p>
-                    ${hasResHtml(event)}
+                    ${hasResults ? '<p class="text-[10px] text-orange-600 font-black mt-2 uppercase tracking-tighter">View Results →</p>' : ''}
                 </div>`;
             });
-        }
-
-        function hasResHtml(event) {
-            if (event.mxgp_res.length > 0) {
-                return '<p class="text-[10px] text-orange-600 font-black mt-2 uppercase tracking-tighter">View Results →</p>';
-            }
-            return '';
         }
 
         function openModal(index) {
@@ -137,9 +129,13 @@
             document.getElementById('modal-title').innerText = activeGP.gp;
             updateModalView('mxgp');
             document.getElementById('results-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() { document.getElementById('results-modal').classList.add('hidden'); }
+        function closeModal() {
+            document.getElementById('results-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
 
         function updateModalView(className) {
             document.getElementById('modal-btn-mxgp').className = className === 'mxgp' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
