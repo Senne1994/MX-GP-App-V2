@@ -6,15 +6,14 @@ import time
 def get_headers():
     return {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
-def scrape_table_row_by_row(table):
+def clean_table_data(table):
     results = []
     if not table: return []
-    rows = table.find_all('tr')[1:] # Skip header
+    rows = table.find_all('tr')[1:] 
     for row in rows:
         cols = row.find_all('td')
-        # We baseren ons op jouw exacte HTML-voorbeeld (minimaal 6 kolommen)
+        # We kijken strikt naar de kolommen: 0=Pos, 1=Num, 2=Rider, 3=Bike, 5=Points
         if len(cols) >= 6:
-            # Haal de naam uit de <a> tag in de derde kolom
             name_link = cols[2].find('a')
             name_text = name_link.get_text(strip=True) if name_link else cols[2].get_text(strip=True)
             
@@ -30,44 +29,38 @@ def scrape_table_row_by_row(table):
 def scrape_mxgp():
     data = {"mxgp": {"title": "MXGP STANDINGS", "riders": []}, "mx2": {"title": "MX2 STANDINGS", "riders": []}, "calendar": []}
     
-    # 1. Standings (Hoofdpagina)
+    # 1. Standings
     for cat in ["mxgp", "mx2"]:
         try:
             res = requests.get(f"https://mxgpresults.com/{cat}/standings", headers=get_headers())
             soup = BeautifulSoup(res.text, 'html.parser')
             table = soup.find('section', id='standings').find('table')
-            data[cat]["riders"] = scrape_table_row_by_row(table)
+            data[cat]["riders"] = clean_table_data(table)
         except: pass
 
-    # 2. Kalender & Resultaten (Detailpagina's)
+    # 2. Kalender
     try:
         res = requests.get("https://mxgpresults.com/mxgp/calendar", headers=get_headers())
         soup = BeautifulSoup(res.text, 'html.parser')
-        calendar_rows = soup.find_all('tr')[1:]
-        
-        for row in calendar_rows:
+        for row in soup.find_all('tr')[1:]:
             cols = row.find_all('td')
             if len(cols) >= 3:
                 link = cols[1].find('a')
                 event = {
                     "round": cols[0].get_text(strip=True),
-                    "gp": cols[1].find('span', itemprop="name").get_text(strip=True).upper() if cols[1].find('span') else cols[1].get_text(strip=True).split('\n')[0].upper(),
+                    "gp": cols[1].find('span', itemprop="name").get_text(strip=True).upper() if cols[1].find('span') else cols[1].get_text(strip=True).upper(),
                     "loc": cols[1].find('small').get_text(strip=True) if cols[1].find('small') else "",
                     "date": cols[2].get_text(strip=True),
                     "mxgp_res": [], "mx2_res": []
                 }
-                
                 if link:
-                    base_url = link['href']
-                    for cat in ["mxgp", "mx2"]:
-                        r_url = f"https://mxgpresults.com{base_url.replace('/mxgp/', f'/{cat}/')}"
-                        r_res = requests.get(r_url, headers=get_headers())
-                        r_soup = BeautifulSoup(r_res.text, 'html.parser')
-                        # Zoek specifiek de tabel in het gpclassification blok
+                    url = link['href']
+                    for c in ["mxgp", "mx2"]:
+                        r_url = f"https://mxgpresults.com{url.replace('/mxgp/', f'/{c}/')}"
+                        r_soup = BeautifulSoup(requests.get(r_url, headers=get_headers()).text, 'html.parser')
                         container = r_soup.find('div', id='gpclassification')
                         if container and container.find('table'):
-                            event[f"{cat}_res"] = scrape_table_row_by_row(container.find('table'))
-                        time.sleep(0.5)
+                            event[f"{c}_res"] = clean_table_data(container.find('table'))
                 data["calendar"].append(event)
     except: pass
 
