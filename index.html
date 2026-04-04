@@ -1,83 +1,179 @@
-<div id="page-results" class="page">
-    <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
-        <div class="flex justify-between items-center mb-4">
-            <button onclick="showPage('calendar')" class="text-xs font-bold text-gray-400 uppercase">← Back</button>
-            <h1 id="res-title" class="text-lg font-black italic uppercase text-orange-600 italic truncate mx-4">RESULTS</h1>
-            <div class="w-10"></div>
-        </div>
-        <div class="flex justify-center space-x-2 mb-4">
-            <button onclick="setResCat('mxgp')" id="res-btn-mxgp" class="flex-1 py-2 rounded-full font-black text-[10px] bg-orange-600 text-white">MXGP</button>
-            <button onclick="setResCat('mx2')" id="res-btn-mx2" class="flex-1 py-2 rounded-full font-black text-[10px] bg-gray-800 text-gray-400">MX2</button>
-        </div>
-        <div class="flex justify-between border-t border-gray-800 pt-3 mt-1 overflow-x-auto no-scrollbar space-x-1">
-            <button onclick="setResSession('overall')" id="sess-overall" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-orange-600 text-white">Overall</button>
-            <button onclick="setResSession('quali')" id="sess-quali" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400">Quali</button>
-            <button onclick="setResSession('r1')" id="sess-r1" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400">Race 1</button>
-            <button onclick="setResSession('r2')" id="sess-r2" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400">Race 2</button>
-        </div>
-    </header>
-    <div id="results-list" class="max-w-md mx-auto p-4 space-y-3"></div>
-</div>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MXGP Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .nav-active { color: #ea580c; border-top: 3px solid #ea580c; background: rgba(255,255,255,0.05); }
+        body { background-color: #f3f4f6; padding-bottom: 70px; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-sans text-gray-900">
 
-<script>
-    let db = {};
-    let activeGP = null;
-    let activeResCat = 'mxgp';
-    let activeSession = 'overall';
+    <div id="page-standings" class="page active">
+        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
+            <h1 id="main-title" class="text-lg font-black italic uppercase text-orange-600 mb-4 tracking-tighter">STANDINGS</h1>
+            <div class="flex justify-center space-x-2">
+                <button onclick="switchClass('mxgp')" id="btn-mxgp" class="px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white">MXGP</button>
+                <button onclick="switchClass('mx2')" id="btn-mx2" class="px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400">MX2</button>
+            </div>
+        </header>
+        <div id="standings-list" class="max-w-md mx-auto p-4 space-y-3"></div>
+    </div>
 
-    // ... (init blijft hetzelfde)
+    <div id="page-calendar" class="page">
+        <header class="bg-black text-white p-6 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
+            <h1 class="text-xl font-black italic uppercase text-orange-600">CALENDAR</h1>
+        </header>
+        <div id="calendar-list" class="max-w-md mx-auto p-4 space-y-3"></div>
+    </div>
 
-    function renderRiderList(containerId, riders) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = '';
-        if (!riders || riders.length === 0) {
-            container.innerHTML = '<p class="text-center text-gray-400 font-bold p-12 uppercase text-[10px]">No session data yet</p>';
-            return;
+    <div id="page-results" class="page">
+        <header class="bg-black text-white p-4 sticky top-0 z-50 border-b-2 border-orange-600 text-center">
+            <div class="flex justify-between items-center mb-4">
+                <button onclick="showPage('calendar')" class="text-xs font-bold text-gray-400 uppercase">← Back</button>
+                <h1 id="res-title" class="text-lg font-black italic uppercase text-orange-600 truncate mx-4">RESULTS</h1>
+                <div class="w-10"></div>
+            </div>
+            <div class="flex justify-center space-x-2 mb-4">
+                <button onclick="setResCat('mxgp')" id="res-btn-mxgp" class="flex-1 py-2 rounded-full font-black text-[10px] bg-orange-600 text-white">MXGP</button>
+                <button onclick="setResCat('mx2')" id="res-btn-mx2" class="flex-1 py-2 rounded-full font-black text-[10px] bg-gray-800 text-gray-400">MX2</button>
+            </div>
+            <div class="flex justify-between border-t border-gray-800 pt-3 mt-1 overflow-x-auto no-scrollbar space-x-1">
+                <button onclick="setResSession('overall')" id="sess-overall" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-orange-600 text-white">Overall</button>
+                <button onclick="setResSession('quali')" id="sess-quali" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400">Quali</button>
+                <button onclick="setResSession('r1')" id="sess-r1" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400">Race 1</button>
+                <button onclick="setResSession('r2')" id="sess-r2" class="px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400">Race 2</button>
+            </div>
+        </header>
+        <div id="results-list" class="max-w-md mx-auto p-4 space-y-3"></div>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-black text-white flex justify-around items-center z-50 h-16 border-t border-gray-900 shadow-2xl">
+        <button onclick="showPage('standings')" id="nav-standings" class="flex-1 flex flex-col items-center justify-center h-full nav-active">
+            <span class="text-[10px] font-black uppercase tracking-widest">Standings</span>
+        </button>
+        <button onclick="showPage('calendar')" id="nav-calendar" class="flex-1 flex flex-col items-center justify-center h-full text-gray-500">
+            <span class="text-[10px] font-black uppercase tracking-widest">Calendar</span>
+        </button>
+    </nav>
+
+    <script>
+        let db = {};
+        let activeGP = null;
+        let activeResCat = 'mxgp';
+        let activeSession = 'overall';
+
+        async function init() {
+            try {
+                const res = await fetch('data.json?t=' + Date.now());
+                db = await res.json();
+                switchClass('mxgp');
+                renderCalendar();
+            } catch (e) {
+                console.error("Data kon niet laden", e);
+            }
         }
-        riders.forEach(r => {
-            container.innerHTML += `
-            <div class="flex items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                <span class="text-xl font-bold w-8 text-gray-200">${r.pos}</span>
-                <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 font-black mr-3 text-xs">${r.num}</div>
-                <div class="flex-grow">
-                    <h2 class="font-extrabold text-gray-900 leading-tight uppercase text-xs italic">${r.name}</h2>
-                    <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">${r.bike}</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-lg font-black">${r.val}</span>
-                    <p class="text-[8px] text-orange-600 font-black uppercase">${activeSession === 'quali' ? 'time' : 'pts'}</p>
-                </div>
-            </div>`;
-        });
-    }
 
-    function openResults(idx) {
-        activeGP = db.calendar[idx];
-        document.getElementById('res-title').innerText = activeGP.gp;
-        setResCat('mxgp');
-        showPage('results');
-    }
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            
+            document.getElementById('nav-standings').className = pageId === 'standings' ? 'flex-1 flex flex-col items-center justify-center h-full nav-active' : 'flex-1 flex flex-col items-center justify-center h-full text-gray-500';
+            document.getElementById('nav-calendar').className = (pageId === 'calendar' || pageId === 'results') ? 'flex-1 flex flex-col items-center justify-center h-full nav-active' : 'flex-1 flex flex-col items-center justify-center h-full text-gray-500';
+            window.scrollTo(0,0);
+        }
 
-    function setResCat(cat) {
-        activeResCat = cat;
-        updateResUI();
-    }
+        function renderRiderList(containerId, riders, type) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            if (!riders || riders.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-400 font-bold p-12 uppercase text-[10px]">No data available</p>';
+                return;
+            }
+            riders.forEach(r => {
+                // Standings gebruiken 'pts', results gebruiken 'val'
+                const value = r.val || r.pts || '0';
+                const label = type === 'quali' ? 'time' : 'pts';
+                
+                container.innerHTML += `
+                <div class="flex items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <span class="text-xl font-bold w-8 text-gray-200">${r.pos}</span>
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 font-black mr-3 text-xs">${r.num}</div>
+                    <div class="flex-grow">
+                        <h2 class="font-extrabold text-gray-900 leading-tight uppercase text-xs italic">${r.name}</h2>
+                        <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">${r.bike}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-lg font-black">${value}</span>
+                        <p class="text-[8px] text-orange-600 font-black uppercase">${label}</p>
+                    </div>
+                </div>`;
+            });
+        }
 
-    function setResSession(sess) {
-        activeSession = sess;
-        updateResUI();
-    }
+        function switchClass(cat) {
+            document.getElementById('main-title').innerText = db[cat].title;
+            document.getElementById('btn-mxgp').className = cat === 'mxgp' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
+            document.getElementById('btn-mx2').className = cat === 'mx2' ? 'px-8 py-2 rounded-full font-black text-xs bg-orange-600 text-white shadow-md' : 'px-8 py-2 rounded-full font-black text-xs bg-gray-800 text-gray-400';
+            renderRiderList('standings-list', db[cat].riders, 'pts');
+        }
 
-    function updateResUI() {
-        // Update Buttons
-        document.getElementById('res-btn-mxgp').className = activeResCat === 'mxgp' ? 'flex-1 py-2 rounded-full font-black text-[10px] bg-orange-600 text-white' : 'flex-1 py-2 rounded-full font-black text-[10px] bg-gray-800 text-gray-400';
-        document.getElementById('res-btn-mx2').className = activeResCat === 'mx2' ? 'flex-1 py-2 rounded-full font-black text-[10px] bg-orange-600 text-white' : 'flex-1 py-2 rounded-full font-black text-[10px] bg-gray-800 text-gray-400';
-        
-        ['overall', 'quali', 'r1', 'r2'].forEach(s => {
-            document.getElementById('sess-' + s).className = activeSession === s ? 'px-3 py-1 rounded text-[9px] font-black uppercase bg-orange-600 text-white' : 'px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400';
-        });
+        function renderCalendar() {
+            const list = document.getElementById('calendar-list');
+            list.innerHTML = '';
+            db.calendar.forEach((event, idx) => {
+                const hasRes = event.mxgp.overall.length > 0;
+                list.innerHTML += `
+                <div onclick="${hasRes ? `openResults(${idx})` : ''}" class="bg-white p-5 rounded-2xl shadow-sm border-l-4 ${hasRes ? 'border-orange-600' : 'border-gray-200'}">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-[10px] font-black bg-orange-100 text-orange-600 px-2 py-1 rounded uppercase">ROUND ${event.round}</span>
+                        <span class="text-xs font-bold text-gray-400 uppercase">${event.date}</span>
+                    </div>
+                    <h2 class="text-lg font-black text-gray-900 uppercase italic leading-tight">${event.gp}</h2>
+                    <p class="text-sm text-gray-500 font-bold italic mt-1 uppercase">📍 ${event.loc}</p>
+                    ${hasRes ? '<p class="text-[10px] text-orange-600 font-black mt-2 uppercase tracking-tighter">View Session Results →</p>' : ''}
+                </div>`;
+            });
+        }
 
-        renderRiderList('results-list', activeGP[activeResCat][activeSession]);
-    }
-    // ... rest van de functies
-</script>
+        function openResults(idx) {
+            activeGP = db.calendar[idx];
+            document.getElementById('res-title').innerText = activeGP.gp;
+            activeResCat = 'mxgp';
+            activeSession = 'overall';
+            updateResUI();
+            showPage('results');
+        }
+
+        function setResCat(cat) {
+            activeResCat = cat;
+            updateResUI();
+        }
+
+        function setResSession(sess) {
+            activeSession = sess;
+            updateResUI();
+        }
+
+        function updateResUI() {
+            document.getElementById('res-btn-mxgp').className = activeResCat === 'mxgp' ? 'flex-1 py-2 rounded-full font-black text-[10px] bg-orange-600 text-white' : 'flex-1 py-2 rounded-full font-black text-[10px] bg-gray-800 text-gray-400';
+            document.getElementById('res-btn-mx2').className = activeResCat === 'mx2' ? 'flex-1 py-2 rounded-full font-black text-[10px] bg-orange-600 text-white' : 'flex-1 py-2 rounded-full font-black text-[10px] bg-gray-800 text-gray-400';
+            
+            ['overall', 'quali', 'r1', 'r2'].forEach(s => {
+                document.getElementById('sess-' + s).className = activeSession === s ? 'px-3 py-1 rounded text-[9px] font-black uppercase bg-orange-600 text-white' : 'px-3 py-1 rounded text-[9px] font-black uppercase bg-gray-800 text-gray-400';
+            });
+
+            renderRiderList('results-list', activeGP[activeResCat][activeSession], activeSession);
+        }
+
+        init();
+    </script>
+</body>
+</html>
