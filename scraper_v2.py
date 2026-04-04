@@ -18,7 +18,7 @@ def clean_table(table):
             name_cell = cols[2]
             name = name_cell.find('a').get_text(strip=True) if name_cell.find('a') else name_cell.get_text(strip=True)
             bike = cols[3].get_text(strip=True)
-            pts_or_time = cols[-1].get_text(strip=True) # Punten bij race, tijd bij Quali
+            pts_or_time = cols[-1].get_text(strip=True)
             
             results.append({
                 "pos": pos, "num": num, "name": name.upper(),
@@ -37,7 +37,6 @@ def scrape_mxgp():
             container = soup.find('section', id='standings') or soup
             table = container.find('table')
             if table:
-                # Hergebruik clean_table maar hernoem 'val' naar 'pts' voor standings
                 raw_riders = clean_table(table)
                 data[cat]["riders"] = [{"pos": r["pos"], "num": r["num"], "name": r["name"], "bike": r["bike"], "pts": r["val"]} for r in raw_riders]
         except Exception as e: print(f"Error standings {cat}: {e}")
@@ -67,8 +66,8 @@ def scrape_mxgp():
                             r_url = f"https://mxgpresults.com{base_url.replace('/mxgp/', f'/{c_cat}/')}"
                             r_soup = BeautifulSoup(requests.get(r_url, headers=get_headers()).text, 'lxml')
                             
-                            # Map de div ID's naar onze JSON structuur
-                            sessions = {"gpclassification": "overall", "qualifying": "quali", "race1": "r1", "race2": "r2"}
+                            # Aangepaste IDs met koppeltekens voor race-1 en race-2
+                            sessions = {"gpclassification": "overall", "qualifying": "quali", "race-1": "r1", "race-2": "r2"}
                             for div_id, key in sessions.items():
                                 section = r_soup.find('div', id=div_id)
                                 if section:
