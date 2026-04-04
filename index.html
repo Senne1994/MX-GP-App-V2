@@ -90,16 +90,21 @@
             window.scrollTo(0,0);
         }
 
-        function renderRiderList(containerId, riders, type) {
+        function renderRiderList(containerId, riders, sessionType) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             if (!riders || riders.length === 0) {
-                container.innerHTML = '<p class="text-center text-gray-400 font-bold p-12 uppercase text-[10px]">No session data yet</p>';
+                container.innerHTML = '<p class="text-center text-gray-400 font-bold p-12 uppercase text-[10px]">No data available</p>';
                 return;
             }
+
+            // Bepaal of we tijden tonen (Quali, R1, R2) of punten (Overall, Standings)
+            const isTimeSession = ['quali', 'r1', 'r2'].includes(sessionType);
+            const label = isTimeSession ? 'time' : 'pts';
+            const valueClass = isTimeSession ? 'text-xs font-bold' : 'text-lg font-black';
+
             riders.forEach(r => {
                 const value = r.val || r.pts || '0';
-                const label = type === 'quali' ? 'time' : 'pts';
                 
                 container.innerHTML += `
                 <div class="flex items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
@@ -109,8 +114,8 @@
                         <h2 class="font-extrabold text-gray-900 leading-tight uppercase text-xs italic">${r.name}</h2>
                         <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">${r.bike}</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-lg font-black">${value}</span>
+                    <div class="text-right min-w-[70px]">
+                        <span class="${valueClass} whitespace-nowrap">${value}</span>
                         <p class="text-[8px] text-orange-600 font-black uppercase">${label}</p>
                     </div>
                 </div>`;
@@ -137,7 +142,7 @@
                     </div>
                     <h2 class="text-lg font-black text-gray-900 uppercase italic leading-tight">${event.gp}</h2>
                     <p class="text-sm text-gray-500 font-bold italic mt-1 uppercase">📍 ${event.loc}</p>
-                    ${hasRes ? '<p class="text-[10px] text-orange-600 font-black mt-2 uppercase tracking-tighter">View Session Results →</p>' : ''}
+                    ${hasRes ? '<p class="text-[10px] text-orange-600 font-black mt-2 uppercase tracking-tighter">View Results →</p>' : ''}
                 </div>`;
             });
         }
