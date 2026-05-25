@@ -7,104 +7,104 @@
                 "num": "5",
                 "name": "LUCAS COENEN",
                 "bike": "KTM",
-                "pts": "231"
+                "pts": "289"
             },
             {
                 "pos": "2",
                 "num": "84",
                 "name": "JEFFREY HERLINGS",
                 "bike": "HONDA",
-                "pts": "227"
+                "pts": "281"
             },
             {
                 "pos": "3",
-                "num": "16",
-                "name": "TOM VIALLE",
-                "bike": "HONDA",
-                "pts": "206"
+                "num": "1",
+                "name": "ROMAIN FEBVRE",
+                "bike": "KAWASAKI",
+                "pts": "226"
             },
             {
                 "pos": "4",
                 "num": "243",
                 "name": "TIM GAJSER",
                 "bike": "YAMAHA",
-                "pts": "198"
+                "pts": "223"
             },
             {
                 "pos": "5",
-                "num": "1",
-                "name": "ROMAIN FEBVRE",
-                "bike": "KAWASAKI",
-                "pts": "191"
+                "num": "16",
+                "name": "TOM VIALLE",
+                "bike": "HONDA",
+                "pts": "219"
             },
             {
                 "pos": "6",
                 "num": "959",
                 "name": "MAXIME RENAUX",
                 "bike": "YAMAHA",
-                "pts": "178"
+                "pts": "218"
             },
             {
                 "pos": "7",
-                "num": "70",
-                "name": "RUBEN FERNANDEZ",
-                "bike": "HONDA",
-                "pts": "146"
-            },
-            {
-                "pos": "8",
                 "num": "74",
                 "name": "KAY DE WOLF",
                 "bike": "HUSQVARNA",
-                "pts": "144"
+                "pts": "191"
+            },
+            {
+                "pos": "8",
+                "num": "70",
+                "name": "RUBEN FERNANDEZ",
+                "bike": "HONDA",
+                "pts": "178"
             },
             {
                 "pos": "9",
                 "num": "80",
                 "name": "ANDREA ADAMO",
                 "bike": "KTM",
-                "pts": "138"
+                "pts": "171"
             },
             {
                 "pos": "10",
                 "num": "10",
                 "name": "CALVIN VLAANDEREN",
                 "bike": "DUCATI",
-                "pts": "110"
+                "pts": "120"
             },
             {
                 "pos": "11",
                 "num": "41",
                 "name": "PAULS JONASS",
                 "bike": "KAWASAKI",
-                "pts": "95"
+                "pts": "116"
             },
             {
                 "pos": "12",
                 "num": "303",
                 "name": "ALBERTO FORATO",
                 "bike": "FANTIC",
-                "pts": "95"
+                "pts": "104"
             },
             {
                 "pos": "13",
-                "num": "83",
-                "name": "ORIOL OLIVER",
-                "bike": "KTM",
-                "pts": "72"
-            },
-            {
-                "pos": "14",
-                "num": "101",
-                "name": "MATTIA GUADAGNINI",
-                "bike": "KTM",
-                "pts": "69"
-            },
-            {
-                "pos": "15",
                 "num": "24",
                 "name": "KEVIN HORGMO",
                 "bike": "HONDA",
+                "pts": "83"
+            },
+            {
+                "pos": "14",
+                "num": "83",
+                "name": "ORIOL OLIVER",
+                "bike": "KTM",
+                "pts": "81"
+            },
+            {
+                "pos": "15",
+                "num": "101",
+                "name": "MATTIA GUADAGNINI",
+                "bike": "KTM",
                 "pts": "69"
             },
             {
@@ -112,124 +112,159 @@
                 "num": "253",
                 "name": "JAN PANCAR",
                 "bike": "KTM",
-                "pts": "47"
+                "pts": "61"
             },
             {
                 "pos": "17",
-                "num": "32",
-                "name": "BRENT VAN DONINCK",
-                "bike": "FANTIC",
-                "pts": "44"
+                "num": "919",
+                "name": "BEN WATSON",
+                "bike": "TRI",
+                "pts": "51"
             },
             {
                 "pos": "18",
-                "num": "39",
-                "name": "ROAN VAN DE MOOSDIJK",
-                "bike": "KTM",
-                "pts": "39"
+                "num": "32",
+                "name": "BRENT VAN DONINCK",
+                "bike": "FANTIC",
+                "pts": "51"
             },
             {
                 "pos": "19",
                 "num": "9",
                 "name": "THIBAULT BENISTANT",
                 "bike": "HONDA",
-                "pts": "38"
+                "pts": "40"
             },
             {
                 "pos": "20",
-                "num": "919",
-                "name": "BEN WATSON",
-                "bike": "TRI",
-                "pts": "35"
+                "num": "93",
+                "name": "JAGO GEERTS",
+                "bike": "BETA",
+                "pts": "40"
             },
             {
                 "pos": "21",
+                "num": "39",
+                "name": "ROAN VAN DE MOOSDIJK",
+                "bike": "KTM",
+                "pts": "39"
+            },
+            {
+                "pos": "22",
                 "num": "91",
                 "name": "JEREMY SEEWER",
                 "bike": "DUCATI",
                 "pts": "29"
             },
             {
-                "pos": "22",
-                "num": "93",
-                "name": "JAGO GEERTS",
-                "bike": "BETA",
-                "pts": "28"
+                "pos": "23",
+                "num": "132",
+                "name": "ANDREA BONACORSI",
+                "bike": "DUCATI",
+                "pts": "25"
             },
             {
-                "pos": "23",
+                "pos": "24",
+                "num": "831",
+                "name": "BRICE MAYLIN",
+                "bike": "YAMAHA",
+                "pts": "9"
+            },
+            {
+                "pos": "25",
                 "num": "226",
                 "name": "TOM KOCH",
                 "bike": "KTM",
                 "pts": "8"
             },
             {
-                "pos": "24",
+                "pos": "26",
+                "num": "781",
+                "name": "BRIAN HSU",
+                "bike": "HONDA",
+                "pts": "7"
+            },
+            {
+                "pos": "27",
                 "num": "166",
                 "name": "ENZO LOPES",
                 "bike": "HONDA",
                 "pts": "7"
             },
             {
-                "pos": "25",
+                "pos": "28",
                 "num": "811",
                 "name": "ADAM STERRY",
                 "bike": "KTM",
                 "pts": "7"
             },
             {
-                "pos": "26",
-                "num": "132",
-                "name": "ANDREA BONACORSI",
-                "bike": "DUCATI",
-                "pts": "6"
+                "pos": "29",
+                "num": "6",
+                "name": "BENOIT PATUREL",
+                "bike": "YAMAHA",
+                "pts": "5"
             },
             {
-                "pos": "27",
+                "pos": "30",
                 "num": "261",
                 "name": "JORGEN-MATTHIAS TALVIKU",
                 "bike": "YAMAHA",
                 "pts": "5"
             },
             {
-                "pos": "28",
+                "pos": "31",
                 "num": "173",
                 "name": "JOSE BUTRON",
                 "bike": "KTM",
                 "pts": "5"
             },
             {
-                "pos": "29",
+                "pos": "32",
                 "num": "179",
                 "name": "JOAQUIN POLI",
                 "bike": "KAWASAKI",
                 "pts": "5"
             },
             {
-                "pos": "30",
+                "pos": "33",
+                "num": "241",
+                "name": "MAXIME DESPREY",
+                "bike": "YAMAHA",
+                "pts": "4"
+            },
+            {
+                "pos": "34",
                 "num": "300",
                 "name": "NOAH LUDWIG",
                 "bike": "KTM",
                 "pts": "4"
             },
             {
-                "pos": "31",
+                "pos": "35",
                 "num": "55",
                 "name": "MAXIMILIAN SPIES",
                 "bike": "KTM",
                 "pts": "4"
             },
             {
-                "pos": "32",
+                "pos": "36",
                 "num": "107",
                 "name": "LARS VAN BERKEL",
                 "bike": "FANTIC",
                 "pts": "3"
             },
             {
-                "pos": "33",
+                "pos": "37",
                 "num": "200",
                 "name": "ARNAUD TONUS",
+                "bike": "YAMAHA",
+                "pts": "2"
+            },
+            {
+                "pos": "38",
+                "num": "234",
+                "name": "BOGDAN KRAJEWSKI",
                 "bike": "YAMAHA",
                 "pts": "2"
             }
@@ -243,77 +278,77 @@
                 "num": "1",
                 "name": "SIMON L\u00c4NGENFELDER",
                 "bike": "KTM",
-                "pts": "244"
+                "pts": "281"
             },
             {
                 "pos": "2",
                 "num": "19",
                 "name": "SACHA COENEN",
                 "bike": "KTM",
-                "pts": "241"
+                "pts": "273"
             },
             {
                 "pos": "3",
                 "num": "99",
                 "name": "GUILLEM FARRES",
                 "bike": "TRI",
-                "pts": "204"
+                "pts": "261"
             },
             {
                 "pos": "4",
                 "num": "26",
                 "name": "LIAM EVERTS",
                 "bike": "HUSQVARNA",
-                "pts": "202"
+                "pts": "245"
             },
             {
                 "pos": "5",
                 "num": "8",
                 "name": "CAMDEN MCLELLAN",
                 "bike": "TRI",
-                "pts": "185"
+                "pts": "233"
             },
             {
                 "pos": "6",
-                "num": "772",
-                "name": "JANIS MARTINS REISULIS",
-                "bike": "YAMAHA",
-                "pts": "170"
-            },
-            {
-                "pos": "7",
                 "num": "317",
                 "name": "MATHIS VALIN",
                 "bike": "KAWASAKI",
-                "pts": "159"
+                "pts": "211"
+            },
+            {
+                "pos": "7",
+                "num": "772",
+                "name": "JANIS MARTINS REISULIS",
+                "bike": "YAMAHA",
+                "pts": "209"
             },
             {
                 "pos": "8",
                 "num": "47",
                 "name": "KARLIS ALBERTS REISULIS",
                 "bike": "YAMAHA",
-                "pts": "150"
+                "pts": "167"
             },
             {
                 "pos": "9",
                 "num": "18",
                 "name": "VALERIO LATA",
                 "bike": "HONDA",
-                "pts": "133"
+                "pts": "156"
             },
             {
                 "pos": "10",
+                "num": "20",
+                "name": "JULIUS MIKULA",
+                "bike": "KTM",
+                "pts": "130"
+            },
+            {
+                "pos": "11",
                 "num": "33",
                 "name": "KAY KARSSEMAKERS",
                 "bike": "KAWASAKI",
                 "pts": "114"
-            },
-            {
-                "pos": "11",
-                "num": "20",
-                "name": "JULIUS MIKULA",
-                "bike": "KTM",
-                "pts": "113"
             },
             {
                 "pos": "12",
@@ -324,209 +359,244 @@
             },
             {
                 "pos": "13",
+                "num": "83",
+                "name": "MAXIME GRAU",
+                "bike": "HONDA",
+                "pts": "75"
+            },
+            {
+                "pos": "14",
+                "num": "716",
+                "name": "NOEL ZANOCZ",
+                "bike": "KTM",
+                "pts": "73"
+            },
+            {
+                "pos": "15",
                 "num": "48",
                 "name": "JENS WALVOORT",
                 "bike": "KTM",
                 "pts": "60"
             },
             {
-                "pos": "14",
+                "pos": "16",
                 "num": "408",
                 "name": "SCOTT SMULDERS",
                 "bike": "HUSQVARNA",
                 "pts": "57"
             },
             {
-                "pos": "15",
-                "num": "716",
-                "name": "NOEL ZANOCZ",
-                "bike": "KTM",
-                "pts": "56"
-            },
-            {
-                "pos": "16",
-                "num": "83",
-                "name": "MAXIME GRAU",
-                "bike": "HONDA",
-                "pts": "51"
-            },
-            {
                 "pos": "17",
-                "num": "420",
-                "name": "ANDREA ROSSI",
-                "bike": "KTM",
-                "pts": "33"
+                "num": "73",
+                "name": "FERRUCCIO ZANCHI",
+                "bike": "DUCATI",
+                "pts": "35"
             },
             {
                 "pos": "18",
                 "num": "12",
                 "name": "PELLE GUNDERSEN",
                 "bike": "HUSQVARNA",
-                "pts": "30"
+                "pts": "35"
             },
             {
                 "pos": "19",
-                "num": "456",
-                "name": "OLLIE COLMER",
+                "num": "420",
+                "name": "ANDREA ROSSI",
                 "bike": "KTM",
-                "pts": "23"
+                "pts": "35"
             },
             {
                 "pos": "20",
+                "num": "29",
+                "name": "FRANCISCO GARCIA",
+                "bike": "KAWASAKI",
+                "pts": "25"
+            },
+            {
+                "pos": "21",
+                "num": "456",
+                "name": "OLLIE COLMER",
+                "bike": "KTM",
+                "pts": "24"
+            },
+            {
+                "pos": "22",
                 "num": "398",
                 "name": "BENJAMIN GARIB",
                 "bike": "HONDA",
                 "pts": "18"
             },
             {
-                "pos": "21",
-                "num": "73",
-                "name": "FERRUCCIO ZANCHI",
-                "bike": "DUCATI",
-                "pts": "16"
-            },
-            {
-                "pos": "22",
+                "pos": "23",
                 "num": "98",
                 "name": "ALESSANDRO GASPARI",
                 "bike": "KTM",
-                "pts": "13"
+                "pts": "14"
             },
             {
-                "pos": "23",
+                "pos": "24",
+                "num": "30",
+                "name": "JAKE CANNON",
+                "bike": "KAWASAKI",
+                "pts": "12"
+            },
+            {
+                "pos": "25",
                 "num": "170",
                 "name": "VALENTIN KEES",
                 "bike": "KTM",
                 "pts": "12"
             },
             {
-                "pos": "24",
+                "pos": "26",
+                "num": "574",
+                "name": "GYAN DOENSEN",
+                "bike": "KTM",
+                "pts": "12"
+            },
+            {
+                "pos": "27",
                 "num": "71",
                 "name": "MORGAN BENNATI",
                 "bike": "TRI",
                 "pts": "10"
             },
             {
-                "pos": "25",
+                "pos": "28",
                 "num": "154",
                 "name": "CARLOS ANDRES PADILLA DURAN",
                 "bike": "GASGAS",
                 "pts": "10"
             },
             {
-                "pos": "26",
+                "pos": "29",
                 "num": "97",
                 "name": "SIMONE MANCINI",
                 "bike": "DUCATI",
                 "pts": "9"
             },
             {
-                "pos": "27",
+                "pos": "30",
                 "num": "22",
                 "name": "DAVID BRACERAS",
                 "bike": "TRI",
                 "pts": "8"
             },
             {
-                "pos": "28",
+                "pos": "31",
                 "num": "204",
                 "name": "FELIPE QUIRNO COSTA",
                 "bike": "HONDA",
                 "pts": "8"
             },
             {
-                "pos": "29",
+                "pos": "32",
                 "num": "61",
                 "name": "SAMUEL OECHSLIN",
                 "bike": "KTM",
                 "pts": "8"
             },
             {
-                "pos": "30",
+                "pos": "33",
                 "num": "290",
                 "name": "JOSHUA VOELKER",
                 "bike": "KTM",
                 "pts": "8"
             },
             {
-                "pos": "31",
+                "pos": "34",
                 "num": "23",
                 "name": "REMO SCHUDEL",
                 "bike": "KTM",
                 "pts": "7"
             },
             {
-                "pos": "32",
+                "pos": "35",
+                "num": "441",
+                "name": "WILLIAM ASKEW",
+                "bike": "TRI",
+                "pts": "7"
+            },
+            {
+                "pos": "36",
+                "num": "365",
+                "name": "ADRIA MONNE",
+                "bike": "GASGAS",
+                "pts": "7"
+            },
+            {
+                "pos": "37",
                 "num": "117",
                 "name": "JUAN FELIPE GARCIA",
                 "bike": "FANTIC",
                 "pts": "7"
             },
             {
-                "pos": "33",
+                "pos": "38",
                 "num": "401",
                 "name": "LOTTE VAN DRUNEN",
                 "bike": "YAMAHA",
                 "pts": "7"
             },
             {
-                "pos": "34",
+                "pos": "39",
                 "num": "66",
                 "name": "MIGUEL ROJAS",
                 "bike": "KTM",
                 "pts": "6"
             },
             {
-                "pos": "35",
+                "pos": "40",
                 "num": "146",
                 "name": "ALFONSO BRATSCHI",
                 "bike": "KTM",
                 "pts": "5"
             },
             {
-                "pos": "36",
+                "pos": "41",
                 "num": "214",
                 "name": "THOMAS OECHSLIN",
                 "bike": "KTM",
                 "pts": "4"
             },
             {
-                "pos": "37",
+                "pos": "42",
                 "num": "34",
                 "name": "RODRIGO STUARDO",
                 "bike": "FANTIC",
                 "pts": "4"
             },
             {
-                "pos": "38",
+                "pos": "43",
                 "num": "938",
                 "name": "RODOLFO BICALHO",
                 "bike": "KTM",
                 "pts": "4"
             },
             {
-                "pos": "39",
+                "pos": "44",
                 "num": "104",
                 "name": "JOSE MORERA",
                 "bike": "KAWASAKI",
                 "pts": "3"
             },
             {
-                "pos": "40",
+                "pos": "45",
                 "num": "252",
                 "name": "VALENTINO VAZQUEZ",
                 "bike": "GASGAS",
                 "pts": "3"
             },
             {
-                "pos": "41",
+                "pos": "46",
                 "num": "13",
                 "name": "MANUEL TORRADO",
                 "bike": "GASGAS",
                 "pts": "2"
             },
             {
-                "pos": "42",
+                "pos": "47",
                 "num": "199",
                 "name": "PETR RATHOUSKY",
                 "bike": "KTM",
@@ -8952,7 +9022,218 @@
             "loc": "Lacapelle Marival",
             "date": "23 - 24 May",
             "mxgp": {
-                "overall": [],
+                "overall": [
+                    {
+                        "pos": "1",
+                        "num": "5",
+                        "name": "LUCAS COENEN",
+                        "bike": "KTM",
+                        "val": "50"
+                    },
+                    {
+                        "pos": "2",
+                        "num": "84",
+                        "name": "JEFFREY HERLINGS",
+                        "bike": "HONDA",
+                        "val": "44"
+                    },
+                    {
+                        "pos": "3",
+                        "num": "74",
+                        "name": "KAY DE WOLF",
+                        "bike": "HUSQVARNA",
+                        "val": "38"
+                    },
+                    {
+                        "pos": "4",
+                        "num": "959",
+                        "name": "MAXIME RENAUX",
+                        "bike": "YAMAHA",
+                        "val": "33"
+                    },
+                    {
+                        "pos": "5",
+                        "num": "80",
+                        "name": "ANDREA ADAMO",
+                        "bike": "KTM",
+                        "val": "30"
+                    },
+                    {
+                        "pos": "6",
+                        "num": "1",
+                        "name": "ROMAIN FEBVRE",
+                        "bike": "KAWASAKI",
+                        "val": "29"
+                    },
+                    {
+                        "pos": "7",
+                        "num": "70",
+                        "name": "RUBEN FERNANDEZ",
+                        "bike": "HONDA",
+                        "val": "28"
+                    },
+                    {
+                        "pos": "8",
+                        "num": "41",
+                        "name": "PAULS JONASS",
+                        "bike": "KAWASAKI",
+                        "val": "20"
+                    },
+                    {
+                        "pos": "9",
+                        "num": "243",
+                        "name": "TIM GAJSER",
+                        "bike": "YAMAHA",
+                        "val": "20"
+                    },
+                    {
+                        "pos": "10",
+                        "num": "132",
+                        "name": "ANDREA BONACORSI",
+                        "bike": "DUCATI",
+                        "val": "19"
+                    },
+                    {
+                        "pos": "11",
+                        "num": "919",
+                        "name": "BEN WATSON",
+                        "bike": "TRI",
+                        "val": "16"
+                    },
+                    {
+                        "pos": "12",
+                        "num": "253",
+                        "name": "JAN PANCAR",
+                        "bike": "KTM",
+                        "val": "14"
+                    },
+                    {
+                        "pos": "13",
+                        "num": "24",
+                        "name": "KEVIN HORGMO",
+                        "bike": "HONDA",
+                        "val": "14"
+                    },
+                    {
+                        "pos": "14",
+                        "num": "16",
+                        "name": "TOM VIALLE",
+                        "bike": "HONDA",
+                        "val": "13"
+                    },
+                    {
+                        "pos": "15",
+                        "num": "93",
+                        "name": "JAGO GEERTS",
+                        "bike": "BETA",
+                        "val": "12"
+                    },
+                    {
+                        "pos": "16",
+                        "num": "10",
+                        "name": "CALVIN VLAANDEREN",
+                        "bike": "DUCATI",
+                        "val": "10"
+                    },
+                    {
+                        "pos": "17",
+                        "num": "831",
+                        "name": "BRICE MAYLIN",
+                        "bike": "YAMAHA",
+                        "val": "9"
+                    },
+                    {
+                        "pos": "18",
+                        "num": "303",
+                        "name": "ALBERTO FORATO",
+                        "bike": "FANTIC",
+                        "val": "9"
+                    },
+                    {
+                        "pos": "19",
+                        "num": "83",
+                        "name": "ORIOL OLIVER",
+                        "bike": "KTM",
+                        "val": "9"
+                    },
+                    {
+                        "pos": "20",
+                        "num": "781",
+                        "name": "BRIAN HSU",
+                        "bike": "HONDA",
+                        "val": "7"
+                    },
+                    {
+                        "pos": "21",
+                        "num": "32",
+                        "name": "BRENT VAN DONINCK",
+                        "bike": "FANTIC",
+                        "val": "7"
+                    },
+                    {
+                        "pos": "22",
+                        "num": "6",
+                        "name": "BENOIT PATUREL",
+                        "bike": "YAMAHA",
+                        "val": "5"
+                    },
+                    {
+                        "pos": "23",
+                        "num": "241",
+                        "name": "MAXIME DESPREY",
+                        "bike": "YAMAHA",
+                        "val": "4"
+                    },
+                    {
+                        "pos": "24",
+                        "num": "234",
+                        "name": "BOGDAN KRAJEWSKI",
+                        "bike": "YAMAHA",
+                        "val": "2"
+                    },
+                    {
+                        "pos": "25",
+                        "num": "123",
+                        "name": "FEDERICO TUANI",
+                        "bike": "HONDA",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "26",
+                        "num": "970",
+                        "name": "SHAUN VINEL",
+                        "bike": "YAMAHA",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "27",
+                        "num": "87",
+                        "name": "KEVIN BRUMANN",
+                        "bike": "HUSQVARNA",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "28",
+                        "num": "91",
+                        "name": "JEREMY SEEWER",
+                        "bike": "DUCATI",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "29",
+                        "num": "64",
+                        "name": "ROMAIN PAPE",
+                        "bike": "YAMAHA",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "30",
+                        "num": "9",
+                        "name": "THIBAULT BENISTANT",
+                        "bike": "HONDA",
+                        "val": "0"
+                    }
+                ],
                 "quali": [
                     {
                         "pos": "1",
@@ -9165,11 +9446,665 @@
                         "val": "+14 laps"
                     }
                 ],
-                "r1": [],
-                "r2": []
+                "r1": [
+                    {
+                        "pos": "1",
+                        "num": "5",
+                        "name": "LUCAS COENEN",
+                        "bike": "KTM",
+                        "val": "34:49.371"
+                    },
+                    {
+                        "pos": "2",
+                        "num": "84",
+                        "name": "JEFFREY HERLINGS",
+                        "bike": "HONDA",
+                        "val": "+0:10.070"
+                    },
+                    {
+                        "pos": "3",
+                        "num": "243",
+                        "name": "TIM GAJSER",
+                        "bike": "YAMAHA",
+                        "val": "+0:18.365"
+                    },
+                    {
+                        "pos": "4",
+                        "num": "74",
+                        "name": "KAY DE WOLF",
+                        "bike": "HUSQVARNA",
+                        "val": "+0:30.786"
+                    },
+                    {
+                        "pos": "5",
+                        "num": "80",
+                        "name": "ANDREA ADAMO",
+                        "bike": "KTM",
+                        "val": "+0:36.378"
+                    },
+                    {
+                        "pos": "6",
+                        "num": "959",
+                        "name": "MAXIME RENAUX",
+                        "bike": "YAMAHA",
+                        "val": "+0:39.622"
+                    },
+                    {
+                        "pos": "7",
+                        "num": "1",
+                        "name": "ROMAIN FEBVRE",
+                        "bike": "KAWASAKI",
+                        "val": "+0:42.136"
+                    },
+                    {
+                        "pos": "8",
+                        "num": "16",
+                        "name": "TOM VIALLE",
+                        "bike": "HONDA",
+                        "val": "+0:49.081"
+                    },
+                    {
+                        "pos": "9",
+                        "num": "70",
+                        "name": "RUBEN FERNANDEZ",
+                        "bike": "HONDA",
+                        "val": "+0:59.935"
+                    },
+                    {
+                        "pos": "10",
+                        "num": "132",
+                        "name": "ANDREA BONACORSI",
+                        "bike": "DUCATI",
+                        "val": "+1:09.019"
+                    },
+                    {
+                        "pos": "11",
+                        "num": "10",
+                        "name": "CALVIN VLAANDEREN",
+                        "bike": "DUCATI",
+                        "val": "+1:15.892"
+                    },
+                    {
+                        "pos": "12",
+                        "num": "41",
+                        "name": "PAULS JONASS",
+                        "bike": "KAWASAKI",
+                        "val": "+1:18.730"
+                    },
+                    {
+                        "pos": "13",
+                        "num": "83",
+                        "name": "ORIOL OLIVER",
+                        "bike": "KTM",
+                        "val": "+1:19.706"
+                    },
+                    {
+                        "pos": "14",
+                        "num": "32",
+                        "name": "BRENT VAN DONINCK",
+                        "bike": "FANTIC",
+                        "val": "+1:21.346"
+                    },
+                    {
+                        "pos": "15",
+                        "num": "303",
+                        "name": "ALBERTO FORATO",
+                        "bike": "FANTIC",
+                        "val": "+1:22.653"
+                    },
+                    {
+                        "pos": "16",
+                        "num": "93",
+                        "name": "JAGO GEERTS",
+                        "bike": "BETA",
+                        "val": "+1:33.255"
+                    },
+                    {
+                        "pos": "17",
+                        "num": "24",
+                        "name": "KEVIN HORGMO",
+                        "bike": "HONDA",
+                        "val": "+1:38.411"
+                    },
+                    {
+                        "pos": "18",
+                        "num": "919",
+                        "name": "BEN WATSON",
+                        "bike": "TRIUMPH",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "19",
+                        "num": "253",
+                        "name": "JAN PANCAR",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "20",
+                        "num": "781",
+                        "name": "BRIAN HSU",
+                        "bike": "HONDA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "21",
+                        "num": "91",
+                        "name": "JEREMY SEEWER",
+                        "bike": "DUCATI",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "22",
+                        "num": "6",
+                        "name": "BENOIT PATUREL",
+                        "bike": "YAMAHA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "23",
+                        "num": "234",
+                        "name": "BOGDAN KRAJEWSKI",
+                        "bike": "YAMAHA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "24",
+                        "num": "241",
+                        "name": "MAXIME DESPREY",
+                        "bike": "YAMAHA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "25",
+                        "num": "87",
+                        "name": "KEVIN BRUMANN",
+                        "bike": "HUSQVARNA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "26",
+                        "num": "64",
+                        "name": "ROMAIN PAPE",
+                        "bike": "YAMAHA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "27",
+                        "num": "123",
+                        "name": "FEDERICO TUANI",
+                        "bike": "HONDA",
+                        "val": "+2 laps"
+                    },
+                    {
+                        "pos": "28",
+                        "num": "970",
+                        "name": "SHAUN VINEL",
+                        "bike": "YAMAHA",
+                        "val": "+4 laps"
+                    },
+                    {
+                        "pos": "29",
+                        "num": "831",
+                        "name": "BRICE MAYLIN",
+                        "bike": "YAMAHA",
+                        "val": "+9 laps"
+                    },
+                    {
+                        "pos": "30",
+                        "num": "9",
+                        "name": "THIBAULT BENISTANT",
+                        "bike": "HONDA",
+                        "val": "+20 laps"
+                    }
+                ],
+                "r2": [
+                    {
+                        "pos": "1",
+                        "num": "5",
+                        "name": "LUCAS COENEN",
+                        "bike": "KTM",
+                        "val": "1:23.331"
+                    },
+                    {
+                        "pos": "2",
+                        "num": "84",
+                        "name": "JEFFREY HERLINGS",
+                        "bike": "HONDA",
+                        "val": "+0:01.512"
+                    },
+                    {
+                        "pos": "3",
+                        "num": "74",
+                        "name": "KAY DE WOLF",
+                        "bike": "HUSQVARNA",
+                        "val": "+0:02.856"
+                    },
+                    {
+                        "pos": "4",
+                        "num": "959",
+                        "name": "MAXIME RENAUX",
+                        "bike": "YAMAHA",
+                        "val": "+0:03.770"
+                    },
+                    {
+                        "pos": "5",
+                        "num": "70",
+                        "name": "RUBEN FERNANDEZ",
+                        "bike": "HONDA",
+                        "val": "+0:04.868"
+                    },
+                    {
+                        "pos": "6",
+                        "num": "1",
+                        "name": "ROMAIN FEBVRE",
+                        "bike": "KAWASAKI",
+                        "val": "+0:05.514"
+                    },
+                    {
+                        "pos": "7",
+                        "num": "80",
+                        "name": "ANDREA ADAMO",
+                        "bike": "KTM",
+                        "val": "+0:06.750"
+                    },
+                    {
+                        "pos": "8",
+                        "num": "919",
+                        "name": "BEN WATSON",
+                        "bike": "TRIUMPH",
+                        "val": "+0:07.632"
+                    },
+                    {
+                        "pos": "9",
+                        "num": "253",
+                        "name": "JAN PANCAR",
+                        "bike": "KTM",
+                        "val": "+0:07.980"
+                    },
+                    {
+                        "pos": "10",
+                        "num": "41",
+                        "name": "PAULS JONASS",
+                        "bike": "KAWASAKI",
+                        "val": "+0:08.629"
+                    },
+                    {
+                        "pos": "11",
+                        "num": "24",
+                        "name": "KEVIN HORGMO",
+                        "bike": "HONDA",
+                        "val": "+0:09.161"
+                    },
+                    {
+                        "pos": "12",
+                        "num": "831",
+                        "name": "BRICE MAYLIN",
+                        "bike": "YAMAHA",
+                        "val": "+0:09.919"
+                    },
+                    {
+                        "pos": "13",
+                        "num": "132",
+                        "name": "ANDREA BONACORSI",
+                        "bike": "DUCATI",
+                        "val": "+0:10.146"
+                    },
+                    {
+                        "pos": "14",
+                        "num": "93",
+                        "name": "JAGO GEERTS",
+                        "bike": "BETA",
+                        "val": "+0:11.013"
+                    },
+                    {
+                        "pos": "15",
+                        "num": "781",
+                        "name": "BRIAN HSU",
+                        "bike": "HONDA",
+                        "val": "+0:11.245"
+                    },
+                    {
+                        "pos": "16",
+                        "num": "6",
+                        "name": "BENOIT PATUREL",
+                        "bike": "YAMAHA",
+                        "val": "+0:12.210"
+                    },
+                    {
+                        "pos": "17",
+                        "num": "241",
+                        "name": "MAXIME DESPREY",
+                        "bike": "YAMAHA",
+                        "val": "+0:12.401"
+                    },
+                    {
+                        "pos": "18",
+                        "num": "303",
+                        "name": "ALBERTO FORATO",
+                        "bike": "FANTIC",
+                        "val": "+0:13.024"
+                    },
+                    {
+                        "pos": "19",
+                        "num": "234",
+                        "name": "BOGDAN KRAJEWSKI",
+                        "bike": "YAMAHA",
+                        "val": "+0:13.364"
+                    },
+                    {
+                        "pos": "20",
+                        "num": "83",
+                        "name": "ORIOL OLIVER",
+                        "bike": "KTM",
+                        "val": "+0:14.247"
+                    },
+                    {
+                        "pos": "21",
+                        "num": "123",
+                        "name": "FEDERICO TUANI",
+                        "bike": "HONDA",
+                        "val": "+0:15.047"
+                    },
+                    {
+                        "pos": "22",
+                        "num": "970",
+                        "name": "SHAUN VINEL",
+                        "bike": "YAMAHA",
+                        "val": "+0:19.403"
+                    },
+                    {
+                        "pos": "23",
+                        "num": "87",
+                        "name": "KEVIN BRUMANN",
+                        "bike": "HUSQVARNA",
+                        "val": "+0:21.656"
+                    },
+                    {
+                        "pos": "24",
+                        "num": "32",
+                        "name": "BRENT VAN DONINCK",
+                        "bike": "FANTIC",
+                        "val": "+0:23.213"
+                    },
+                    {
+                        "pos": "25",
+                        "num": "91",
+                        "name": "JEREMY SEEWER",
+                        "bike": "DUCATI",
+                        "val": "+-2:36.669"
+                    },
+                    {
+                        "pos": "26",
+                        "num": "243",
+                        "name": "TIM GAJSER",
+                        "bike": "YAMAHA",
+                        "val": "+-2:36.669"
+                    },
+                    {
+                        "pos": "27",
+                        "num": "10",
+                        "name": "CALVIN VLAANDEREN",
+                        "bike": "DUCATI",
+                        "val": "+-2:36.669"
+                    },
+                    {
+                        "pos": "28",
+                        "num": "64",
+                        "name": "ROMAIN PAPE",
+                        "bike": "YAMAHA",
+                        "val": "+-2:36.669"
+                    }
+                ]
             },
             "mx2": {
-                "overall": [],
+                "overall": [
+                    {
+                        "pos": "1",
+                        "num": "99",
+                        "name": "GUILLEM FARRES",
+                        "bike": "TRI",
+                        "val": "50"
+                    },
+                    {
+                        "pos": "2",
+                        "num": "8",
+                        "name": "CAMDEN MCLELLAN",
+                        "bike": "TRI",
+                        "val": "42"
+                    },
+                    {
+                        "pos": "3",
+                        "num": "317",
+                        "name": "MATHIS VALIN",
+                        "bike": "KAWASAKI",
+                        "val": "42"
+                    },
+                    {
+                        "pos": "4",
+                        "num": "26",
+                        "name": "LIAM EVERTS",
+                        "bike": "HUSQVARNA",
+                        "val": "34"
+                    },
+                    {
+                        "pos": "5",
+                        "num": "1",
+                        "name": "SIMON L\u00c4NGENFELDER",
+                        "bike": "KTM",
+                        "val": "32"
+                    },
+                    {
+                        "pos": "6",
+                        "num": "772",
+                        "name": "JANIS MARTINS REISULIS",
+                        "bike": "YAMAHA",
+                        "val": "31"
+                    },
+                    {
+                        "pos": "7",
+                        "num": "19",
+                        "name": "SACHA COENEN",
+                        "bike": "KTM",
+                        "val": "28"
+                    },
+                    {
+                        "pos": "8",
+                        "num": "83",
+                        "name": "MAXIME GRAU",
+                        "bike": "HONDA",
+                        "val": "24"
+                    },
+                    {
+                        "pos": "9",
+                        "num": "18",
+                        "name": "VALERIO LATA",
+                        "bike": "HONDA",
+                        "val": "22"
+                    },
+                    {
+                        "pos": "10",
+                        "num": "29",
+                        "name": "FRANCISCO GARCIA",
+                        "bike": "KAWASAKI",
+                        "val": "22"
+                    },
+                    {
+                        "pos": "11",
+                        "num": "47",
+                        "name": "KARLIS ALBERTS REISULIS",
+                        "bike": "YAMAHA",
+                        "val": "17"
+                    },
+                    {
+                        "pos": "12",
+                        "num": "716",
+                        "name": "NOEL ZANOCZ",
+                        "bike": "KTM",
+                        "val": "17"
+                    },
+                    {
+                        "pos": "13",
+                        "num": "73",
+                        "name": "FERRUCCIO ZANCHI",
+                        "bike": "DUCATI",
+                        "val": "17"
+                    },
+                    {
+                        "pos": "14",
+                        "num": "20",
+                        "name": "JULIUS MIKULA",
+                        "bike": "KTM",
+                        "val": "17"
+                    },
+                    {
+                        "pos": "15",
+                        "num": "30",
+                        "name": "JAKE CANNON",
+                        "bike": "KAWASAKI",
+                        "val": "12"
+                    },
+                    {
+                        "pos": "16",
+                        "num": "574",
+                        "name": "GYAN DOENSEN",
+                        "bike": "KTM",
+                        "val": "12"
+                    },
+                    {
+                        "pos": "17",
+                        "num": "441",
+                        "name": "WILLIAM ASKEW",
+                        "bike": "TRI",
+                        "val": "7"
+                    },
+                    {
+                        "pos": "18",
+                        "num": "365",
+                        "name": "ADRIA MONNE",
+                        "bike": "GASGAS",
+                        "val": "7"
+                    },
+                    {
+                        "pos": "19",
+                        "num": "12",
+                        "name": "PELLE GUNDERSEN",
+                        "bike": "HUSQVARNA",
+                        "val": "5"
+                    },
+                    {
+                        "pos": "20",
+                        "num": "420",
+                        "name": "ANDREA ROSSI",
+                        "bike": "KTM",
+                        "val": "2"
+                    },
+                    {
+                        "pos": "21",
+                        "num": "456",
+                        "name": "OLLIE COLMER",
+                        "bike": "KTM",
+                        "val": "1"
+                    },
+                    {
+                        "pos": "22",
+                        "num": "98",
+                        "name": "ALESSANDRO GASPARI",
+                        "bike": "KTM",
+                        "val": "1"
+                    },
+                    {
+                        "pos": "23",
+                        "num": "518",
+                        "name": "DOUWE VAN MECHGELEN",
+                        "bike": "TM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "24",
+                        "num": "287",
+                        "name": "MAXIMILIAN ERNECKER",
+                        "bike": "KTM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "25",
+                        "num": "321",
+                        "name": "ALESSANDRO TRAVERSINI",
+                        "bike": "KTM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "26",
+                        "num": "920",
+                        "name": "SANDRO SOOLS",
+                        "bike": "KTM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "27",
+                        "num": "290",
+                        "name": "JOSHUA VOELKER",
+                        "bike": "KTM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "28",
+                        "num": "496",
+                        "name": "ALVE CALLEMO",
+                        "bike": "HUSQVARNA",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "29",
+                        "num": "938",
+                        "name": "RODOLFO BICALHO",
+                        "bike": "KTM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "30",
+                        "num": "370",
+                        "name": "XAVIER CAMPS",
+                        "bike": "GASGAS",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "31",
+                        "num": "252",
+                        "name": "VALENTINO VAZQUEZ",
+                        "bike": "GASGAS",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "32",
+                        "num": "33",
+                        "name": "KAY KARSSEMAKERS",
+                        "bike": "KAWASAKI",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "33",
+                        "num": "44",
+                        "name": "NIKE KORSBECK",
+                        "bike": "TRI",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "34",
+                        "num": "466",
+                        "name": "VACLAV JANOUT",
+                        "bike": "KTM",
+                        "val": "0"
+                    },
+                    {
+                        "pos": "35",
+                        "num": "408",
+                        "name": "SCOTT SMULDERS",
+                        "bike": "HUSQVARNA",
+                        "val": "0"
+                    }
+                ],
                 "quali": [
                     {
                         "pos": "1",
@@ -9417,8 +10352,472 @@
                         "val": "+8 laps"
                     }
                 ],
-                "r1": [],
-                "r2": []
+                "r1": [
+                    {
+                        "pos": "1",
+                        "num": "99",
+                        "name": "GUILLEM FARRES",
+                        "bike": "TRIUMPH",
+                        "val": "34:00.275"
+                    },
+                    {
+                        "pos": "2",
+                        "num": "317",
+                        "name": "MATHIS VALIN",
+                        "bike": "KAWASAKI",
+                        "val": "+0:03.461"
+                    },
+                    {
+                        "pos": "3",
+                        "num": "8",
+                        "name": "CAMDEN MCLELLAN",
+                        "bike": "TRIUMPH",
+                        "val": "+0:05.721"
+                    },
+                    {
+                        "pos": "4",
+                        "num": "1",
+                        "name": "SIMON L\u00c4NGENFELDER",
+                        "bike": "KTM",
+                        "val": "+0:12.347"
+                    },
+                    {
+                        "pos": "5",
+                        "num": "26",
+                        "name": "LIAM EVERTS",
+                        "bike": "HUSQVARNA",
+                        "val": "+0:18.966"
+                    },
+                    {
+                        "pos": "6",
+                        "num": "772",
+                        "name": "JANIS MARTINS REISULIS",
+                        "bike": "YAMAHA",
+                        "val": "+0:24.731"
+                    },
+                    {
+                        "pos": "7",
+                        "num": "20",
+                        "name": "JULIUS MIKULA",
+                        "bike": "KTM",
+                        "val": "+0:26.920"
+                    },
+                    {
+                        "pos": "8",
+                        "num": "19",
+                        "name": "SACHA COENEN",
+                        "bike": "KTM",
+                        "val": "+0:30.737"
+                    },
+                    {
+                        "pos": "9",
+                        "num": "83",
+                        "name": "MAXIME GRAU",
+                        "bike": "HONDA",
+                        "val": "+0:36.714"
+                    },
+                    {
+                        "pos": "10",
+                        "num": "29",
+                        "name": "FRANCISCO GARCIA",
+                        "bike": "KAWASAKI",
+                        "val": "+0:39.187"
+                    },
+                    {
+                        "pos": "11",
+                        "num": "73",
+                        "name": "FERRUCCIO ZANCHI",
+                        "bike": "DUCATI",
+                        "val": "+0:41.055"
+                    },
+                    {
+                        "pos": "12",
+                        "num": "18",
+                        "name": "VALERIO LATA",
+                        "bike": "HONDA",
+                        "val": "+1:04.768"
+                    },
+                    {
+                        "pos": "13",
+                        "num": "716",
+                        "name": "NOEL ZANOCZ",
+                        "bike": "KTM",
+                        "val": "+1:11.387"
+                    },
+                    {
+                        "pos": "14",
+                        "num": "47",
+                        "name": "KARLIS ALBERTS REISULIS",
+                        "bike": "YAMAHA",
+                        "val": "+1:15.635"
+                    },
+                    {
+                        "pos": "15",
+                        "num": "574",
+                        "name": "GYAN DOENSEN",
+                        "bike": "KTM",
+                        "val": "+1:25.388"
+                    },
+                    {
+                        "pos": "16",
+                        "num": "12",
+                        "name": "PELLE GUNDERSEN",
+                        "bike": "HUSQVARNA",
+                        "val": "+1:37.775"
+                    },
+                    {
+                        "pos": "17",
+                        "num": "30",
+                        "name": "JAKE CANNON",
+                        "bike": "KAWASAKI",
+                        "val": "+1:40.190"
+                    },
+                    {
+                        "pos": "18",
+                        "num": "365",
+                        "name": "ADRIA MONNE",
+                        "bike": "GASGAS",
+                        "val": "+1:54.085"
+                    },
+                    {
+                        "pos": "19",
+                        "num": "441",
+                        "name": "WILLIAM ASKEW",
+                        "bike": "TRIUMPH",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "20",
+                        "num": "98",
+                        "name": "ALESSANDRO GASPARI",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "21",
+                        "num": "518",
+                        "name": "DOUWE VAN MECHGELEN",
+                        "bike": "TM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "22",
+                        "num": "420",
+                        "name": "ANDREA ROSSI",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "23",
+                        "num": "496",
+                        "name": "ALVE CALLEMO",
+                        "bike": "HUSQVARNA",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "24",
+                        "num": "287",
+                        "name": "MAXIMILIAN ERNECKER",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "25",
+                        "num": "920",
+                        "name": "SANDRO SOOLS",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "26",
+                        "num": "290",
+                        "name": "JOSHUA VOELKER",
+                        "bike": "KTM",
+                        "val": "+2 laps"
+                    },
+                    {
+                        "pos": "27",
+                        "num": "252",
+                        "name": "VALENTINO VAZQUEZ",
+                        "bike": "GASGAS",
+                        "val": "+2 laps"
+                    },
+                    {
+                        "pos": "28",
+                        "num": "456",
+                        "name": "OLLIE COLMER",
+                        "bike": "KTM",
+                        "val": "+3 laps"
+                    },
+                    {
+                        "pos": "29",
+                        "num": "370",
+                        "name": "XAVIER CAMPS",
+                        "bike": "GASGAS",
+                        "val": "+3 laps"
+                    },
+                    {
+                        "pos": "30",
+                        "num": "33",
+                        "name": "KAY KARSSEMAKERS",
+                        "bike": "KAWASAKI",
+                        "val": "+5 laps"
+                    },
+                    {
+                        "pos": "31",
+                        "num": "44",
+                        "name": "NIKE KORSBECK",
+                        "bike": "TRIUMPH",
+                        "val": "+9 laps"
+                    },
+                    {
+                        "pos": "32",
+                        "num": "938",
+                        "name": "RODOLFO BICALHO",
+                        "bike": "KTM",
+                        "val": "+11 laps"
+                    },
+                    {
+                        "pos": "33",
+                        "num": "466",
+                        "name": "VACLAV JANOUT",
+                        "bike": "KTM",
+                        "val": "+11 laps"
+                    },
+                    {
+                        "pos": "34",
+                        "num": "321",
+                        "name": "ALESSANDRO TRAVERSINI",
+                        "bike": "KTM",
+                        "val": "+13 laps"
+                    },
+                    {
+                        "pos": "35",
+                        "num": "408",
+                        "name": "SCOTT SMULDERS",
+                        "bike": "HUSQVARNA",
+                        "val": "+19 laps"
+                    }
+                ],
+                "r2": [
+                    {
+                        "pos": "1",
+                        "num": "99",
+                        "name": "GUILLEM FARRES",
+                        "bike": "TRIUMPH",
+                        "val": "34:57.080"
+                    },
+                    {
+                        "pos": "2",
+                        "num": "8",
+                        "name": "CAMDEN MCLELLAN",
+                        "bike": "TRIUMPH",
+                        "val": "+0:00.856"
+                    },
+                    {
+                        "pos": "3",
+                        "num": "317",
+                        "name": "MATHIS VALIN",
+                        "bike": "KAWASAKI",
+                        "val": "+0:06.860"
+                    },
+                    {
+                        "pos": "4",
+                        "num": "26",
+                        "name": "LIAM EVERTS",
+                        "bike": "HUSQVARNA",
+                        "val": "+0:09.962"
+                    },
+                    {
+                        "pos": "5",
+                        "num": "772",
+                        "name": "JANIS MARTINS REISULIS",
+                        "bike": "YAMAHA",
+                        "val": "+0:13.230"
+                    },
+                    {
+                        "pos": "6",
+                        "num": "19",
+                        "name": "SACHA COENEN",
+                        "bike": "KTM",
+                        "val": "+0:13.825"
+                    },
+                    {
+                        "pos": "7",
+                        "num": "1",
+                        "name": "SIMON L\u00c4NGENFELDER",
+                        "bike": "KTM",
+                        "val": "+0:22.869"
+                    },
+                    {
+                        "pos": "8",
+                        "num": "18",
+                        "name": "VALERIO LATA",
+                        "bike": "HONDA",
+                        "val": "+0:28.488"
+                    },
+                    {
+                        "pos": "9",
+                        "num": "83",
+                        "name": "MAXIME GRAU",
+                        "bike": "HONDA",
+                        "val": "+0:41.023"
+                    },
+                    {
+                        "pos": "10",
+                        "num": "29",
+                        "name": "FRANCISCO GARCIA",
+                        "bike": "KAWASAKI",
+                        "val": "+0:45.289"
+                    },
+                    {
+                        "pos": "11",
+                        "num": "47",
+                        "name": "KARLIS ALBERTS REISULIS",
+                        "bike": "YAMAHA",
+                        "val": "+0:49.718"
+                    },
+                    {
+                        "pos": "12",
+                        "num": "716",
+                        "name": "NOEL ZANOCZ",
+                        "bike": "KTM",
+                        "val": "+0:52.069"
+                    },
+                    {
+                        "pos": "13",
+                        "num": "30",
+                        "name": "JAKE CANNON",
+                        "bike": "KAWASAKI",
+                        "val": "+1:19.472"
+                    },
+                    {
+                        "pos": "14",
+                        "num": "73",
+                        "name": "FERRUCCIO ZANCHI",
+                        "bike": "DUCATI",
+                        "val": "+1:32.149"
+                    },
+                    {
+                        "pos": "15",
+                        "num": "574",
+                        "name": "GYAN DOENSEN",
+                        "bike": "KTM",
+                        "val": "+1:34.640"
+                    },
+                    {
+                        "pos": "16",
+                        "num": "441",
+                        "name": "WILLIAM ASKEW",
+                        "bike": "TRIUMPH",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "17",
+                        "num": "365",
+                        "name": "ADRIA MONNE",
+                        "bike": "GASGAS",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "18",
+                        "num": "20",
+                        "name": "JULIUS MIKULA",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "19",
+                        "num": "420",
+                        "name": "ANDREA ROSSI",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "20",
+                        "num": "456",
+                        "name": "OLLIE COLMER",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "21",
+                        "num": "518",
+                        "name": "DOUWE VAN MECHGELEN",
+                        "bike": "TM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "22",
+                        "num": "287",
+                        "name": "MAXIMILIAN ERNECKER",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "23",
+                        "num": "321",
+                        "name": "ALESSANDRO TRAVERSINI",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "24",
+                        "num": "920",
+                        "name": "SANDRO SOOLS",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "25",
+                        "num": "290",
+                        "name": "JOSHUA VOELKER",
+                        "bike": "KTM",
+                        "val": "+1 lap"
+                    },
+                    {
+                        "pos": "26",
+                        "num": "496",
+                        "name": "ALVE CALLEMO",
+                        "bike": "HUSQVARNA",
+                        "val": "+2 laps"
+                    },
+                    {
+                        "pos": "27",
+                        "num": "938",
+                        "name": "RODOLFO BICALHO",
+                        "bike": "KTM",
+                        "val": "+2 laps"
+                    },
+                    {
+                        "pos": "28",
+                        "num": "370",
+                        "name": "XAVIER CAMPS",
+                        "bike": "GASGAS",
+                        "val": "+2 laps"
+                    },
+                    {
+                        "pos": "29",
+                        "num": "252",
+                        "name": "VALENTINO VAZQUEZ",
+                        "bike": "GASGAS",
+                        "val": "+3 laps"
+                    },
+                    {
+                        "pos": "30",
+                        "num": "98",
+                        "name": "ALESSANDRO GASPARI",
+                        "bike": "KTM",
+                        "val": "+8 laps"
+                    },
+                    {
+                        "pos": "31",
+                        "num": "12",
+                        "name": "PELLE GUNDERSEN",
+                        "bike": "HUSQVARNA",
+                        "val": "+9 laps"
+                    }
+                ]
             }
         },
         {
